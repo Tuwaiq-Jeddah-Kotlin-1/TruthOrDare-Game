@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bckg"
+    tools:context=".PlayFragment">
+
+    <ImageButton
+        android:id="@+id/truthBtn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Truth Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/tvTruth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Truth"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/truthBtn"
+        app:layout_constraintEnd_toEndOf="@+id/truthBtn"
+        app:layout_constraintStart_toStartOf="@+id/truthBtn"
+        app:layout_constraintTop_toTopOf="@+id/truthBtn" />
+
+    <ImageButton
+        android:id="@+id/dareBtn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Dare Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.946"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/tvDare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Dare"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dareBtn"
+        app:layout_constraintEnd_toEndOf="@+id/dareBtn"
+        app:layout_constraintStart_toStartOf="@+id/dareBtn"
+        app:layout_constraintTop_toTopOf="@+id/dareBtn" />
+
+    <ImageButton
+        android:id="@+id/penaltyBtn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Dare Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
+
+    <TextView
+        android:id="@+id/tvPenalty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Penalty"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/penaltyBtn"
+        app:layout_constraintEnd_toEndOf="@+id/penaltyBtn"
+        app:layout_constraintStart_toStartOf="@+id/penaltyBtn"
+        app:layout_constraintTop_toTopOf="@+id/penaltyBtn" />
+
+
+
+    <ImageView
+        android:id="@+id/ivBottle"
+        android:layout_width="69dp"
+        android:layout_height="200dp"
+        android:src="@drawable/bottles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/spinBtn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Spin Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.792" />
+
+    <TextView
+        android:id="@+id/tvSpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Spin"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/spinBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

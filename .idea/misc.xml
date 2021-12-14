@@ -3,18 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_bottle.xml" value="0.2" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_play.xml" value="0.264" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/fragment_rules.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDare/app/src/main/res/layout/header_layout.xml" value="0.1" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/drawable/mybtn.xml" value="0.2703125" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/drawable/shape_left.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/activity_my_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_bottle.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_login.xml" value="0.264" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_play.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_register.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/fragment_rules.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/layout/header_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/marah/AndroidStudioProjects/TruthOrDareSaudi/app/src/main/res/menu/main_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio java home" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
