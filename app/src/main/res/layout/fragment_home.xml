@@ -1,48 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bkg"
+    android:background="@drawable/bckg"
     tools:context=".HomeFragment">
 
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/prof"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069"
+        android:contentDescription="profile" />
 
-    <Button
+    <ImageView
+        android:id="@+id/shareIcon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="share"
+        android:src="@drawable/shareic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <ImageView
+        android:id="@+id/settingsIcon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:contentDescription="settings"
+        android:src="@drawable/settingsic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.957"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958" />
+
+    <ImageButton
         android:id="@+id/startBtn"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Start Button"
+        app:layout_constraintBottom_toTopOf="@id/bottleBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.811" />
+
+    <TextView
+        android:id="@+id/tvStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/startBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.395" />
+        app:layout_constraintTop_toTopOf="@+id/startBtn" />
 
-    <Button
+
+    <ImageButton
         android:id="@+id/bottleBtn"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="bottle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Bottle Button"
+        app:layout_constraintBottom_toTopOf="@id/rulesBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.541" />
+        app:layout_constraintVertical_bias="0.873" />
 
-    <Button
-        android:id="@+id/shareBtn"
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="Share"
+    <TextView
+        android:id="@+id/tvBottle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Bottle"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottleBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottleBtn" />
+
+    <ImageButton
+        android:id="@+id/rulesBtn"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="Rules Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintVertical_bias="0.643" />
+
+    <TextView
+        android:id="@+id/tvRules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Game Rules"
+        android:textColor="@color/myDark_blue"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rulesBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rulesBtn" />
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
