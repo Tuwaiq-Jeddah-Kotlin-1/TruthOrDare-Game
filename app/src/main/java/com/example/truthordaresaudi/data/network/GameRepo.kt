@@ -1,8 +1,9 @@
 package com.example.truthordaresaudi.data.network
 
 import androidx.lifecycle.MutableLiveData
-import com.example.truthordaresaudi.Users
+import com.example.truthordaresaudi.data.model.Users
 import com.example.truthordaresaudi.data.model.GameData
+import com.example.truthordaresaudi.data.model.GameDataList
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
@@ -17,9 +18,13 @@ class GameRepo {
 
 
 
-    suspend fun fetchGameData(): GameData = withContext(Dispatchers.IO) {
+    suspend fun fetchGameData(): GameDataList = withContext(Dispatchers.IO) {
         api.fetchGameData()
     }
+    suspend fun fetchGameDataList(): GameDataList = withContext(Dispatchers.IO) {
+        api.fetchGameDataList()
+    }
+
 
 
     suspend fun retrieveUserData() { withContext(Dispatchers.IO) {

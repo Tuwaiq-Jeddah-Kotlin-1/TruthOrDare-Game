@@ -11,7 +11,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.R
-import com.example.truthordaresaudi.Users
+import com.example.truthordaresaudi.data.model.Users
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

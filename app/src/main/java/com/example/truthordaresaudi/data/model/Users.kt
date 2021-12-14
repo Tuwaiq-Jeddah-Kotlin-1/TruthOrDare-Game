@@ -1,4 +1,4 @@
-package com.example.truthordaresaudi
+package com.example.truthordaresaudi.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

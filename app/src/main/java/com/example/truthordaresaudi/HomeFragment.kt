@@ -2,6 +2,7 @@ package com.example.truthordaresaudi
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,16 +16,17 @@ import androidx.navigation.fragment.findNavController
 
 class HomeFragment : Fragment() {
 
-    lateinit var ibStart: ImageButton
-    lateinit var ibBottle: ImageButton
-    lateinit var ibRules: ImageButton
-    lateinit var tvStart: TextView
-    lateinit var tvBottle: TextView
-    lateinit var tvRules: TextView
-    lateinit var ivProfile: ImageView
-    lateinit var icShare: ImageView
-    lateinit var icSettings: ImageView
-    val appUrl = "https://github.com/Tuwaiq-Jeddah-Kotlin-1/TruthOrDare-Game"
+     private var vm = ViewModel()
+    private lateinit var ibStart: ImageButton
+    private lateinit var ibBottle: ImageButton
+    private lateinit var ibRules: ImageButton
+    private lateinit var tvStart: TextView
+    private lateinit var tvBottle: TextView
+    private lateinit var tvRules: TextView
+    private lateinit var ivProfile: ImageView
+    private lateinit var icShare: ImageView
+    private lateinit var icSettings: ImageView
+    private val appUrl = "https://github.com/Tuwaiq-Jeddah-Kotlin-1/TruthOrDare-Game"
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,14 +76,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
         }
         icSettings.setOnClickListener {
-//            if(ui == userUid){
-//                findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-//            }else
                     findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
         }
         icShare.setOnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
-            intent.type = "text/html"
+            intent.type = "text/plain"
             intent.putExtra("Share App", appUrl)
             startActivity(intent)
         }
@@ -96,4 +95,10 @@ class HomeFragment : Fragment() {
 //
 //        }
 //    }
+
+    private fun loadMovies(query: String? = null) {
+        vm.fetchInterestingList().observe(this, {
+//            Log.d("Flicker main Response", it.results.toString())
+        })
+    }
 }
