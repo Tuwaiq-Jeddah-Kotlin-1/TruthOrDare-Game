@@ -1,5 +1,7 @@
 package com.example.truthordaresaudi.login
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.TextUtils
 import androidx.fragment.app.Fragment
@@ -7,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
@@ -22,6 +25,9 @@ class LoginFragment : Fragment() {
     private lateinit var loginPassword: TextInputEditText
     private lateinit var loginBtn: Button
     private lateinit var registerNow: TextView
+    private lateinit var rememberMe: CheckBox
+    private lateinit var sharedPreferences: SharedPreferences
+    private var isRemembered = false
 
 
     override fun onCreateView(
@@ -38,6 +44,14 @@ class LoginFragment : Fragment() {
         loginPassword = view.findViewById(R.id.etSignInPassword)
         loginBtn = view.findViewById(R.id.loginBtn)
         registerNow = view.findViewById(R.id.registerNowBtn)
+        rememberMe = view.findViewById(R.id.cbRemember)
+
+        sharedPreferences = this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
+        isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
+
+        if (isRemembered) {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
 
         registerNow.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
@@ -61,16 +75,20 @@ class LoginFragment : Fragment() {
                     FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener { operation ->
                             if (operation.isSuccessful) {
-                                Toast.makeText(context, "Welcome \uD83C\uDF89", Toast.LENGTH_LONG)
-                                    .show()
+                                val emailPreference: String = email
+                                val passwordPreference: String = password
+                                val checked: Boolean = rememberMe.isChecked
+
+                                val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                                editor.putString("EMAIL", emailPreference)
+                                editor.putString("PASSWORD", passwordPreference)
+                                editor.putBoolean("CHECKBOX", checked)
+                                editor.apply()
+                                Toast.makeText(context, "Welcome \uD83C\uDF89", Toast.LENGTH_LONG).show()
                                 findNavController().navigate(R.id.homeFragment)
 
                             } else {
-                                Toast.makeText(
-                                    context,
-                                    operation.exception!!.message.toString(),
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                Toast.makeText(context, operation.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                             }
                         }
                 }

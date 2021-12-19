@@ -1,11 +1,17 @@
 package com.example.truthordaresaudi.data.network
 
 import com.example.truthordaresaudi.data.model.GameData
+import com.example.truthordaresaudi.data.model.UserSuggestions
+import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Query
+import retrofit2.http.POST
 
 interface GameAPI {
     //we should implement here the four CRUD functions for REST
-    @GET("https://61aded2aa7c7f3001786f453.mockapi.io/gameElements")
-    suspend fun fetchGameData(): GameData
+    @GET("/gameElements")
+    suspend fun bringGameData():  List<GameData>
+
+    @POST("/UserRequests")
+    suspend fun userRequests(@Body gameValue : UserSuggestions)
+
 }

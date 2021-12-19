@@ -1,8 +1,9 @@
 package com.example.truthordaresaudi.data.network
 
 import androidx.lifecycle.MutableLiveData
-import com.example.truthordaresaudi.Users
+import com.example.truthordaresaudi.data.model.Users
 import com.example.truthordaresaudi.data.model.GameData
+import com.example.truthordaresaudi.data.model.UserSuggestions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
@@ -17,18 +18,21 @@ class GameRepo {
 
 
 
-    suspend fun fetchGameData(): GameData = withContext(Dispatchers.IO) {
-        api.fetchGameData()
+    suspend fun bringGameData(): List<GameData> = withContext(Dispatchers.IO) {
+        api.bringGameData()
+    }
+
+    suspend fun userRequests(gameValue : UserSuggestions)  = withContext(Dispatchers.IO) {
+        api.userRequests(gameValue)
     }
 
 
+
     suspend fun retrieveUserData() { withContext(Dispatchers.IO) {
-        db.collection("Users").document("$uid").get().addOnCompleteListener() {
+        db.collection("Users").document(uid!!).get().addOnCompleteListener() {
             it.addOnSuccessListener { snapshot ->
-                // snapshot?.let { docSnap ->
                 if (snapshot != null) {
-                    val user2 = snapshot.toObject(Users::class.java)
-                    user.value=user2!!
+                    user.value = snapshot.toObject(Users::class.java)
                 }
 
             }

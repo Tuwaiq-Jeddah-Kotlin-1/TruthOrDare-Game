@@ -1,19 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bckg"
     tools:context=".PlayFragment">
+
+
+
+    <TextView
+        android:id="@+id/tvGameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#C1FFFFFF"
+        android:padding="15dp"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:hint="chosen value"
+        android:text="Truth or Dare😉?"
+        android:textColor="@color/myDark_blue"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/spinBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/penaltyBtn"
+        app:layout_constraintVertical_bias="0.07" />
+
+    <ImageView
+        android:id="@+id/ivBottle"
+        android:layout_width="69dp"
+        android:layout_height="200dp"
+        android:src="@drawable/bottles"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715" />
+
+    <ImageButton
+        android:id="@+id/spinBtn"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="@string/spin_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.932" />
+
+    <TextView
+        android:id="@+id/tvSpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/spin"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/spinBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/spinBtn"
+        app:layout_constraintVertical_bias="0.473" />
 
     <ImageButton
         android:id="@+id/truthBtn"
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:background="@drawable/mybtn"
-        android:contentDescription="Truth Button"
+        android:contentDescription="@string/truth_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.053"
@@ -26,9 +87,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Truth"
+        android:text="@string/truth"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/truthBtn"
         app:layout_constraintEnd_toEndOf="@+id/truthBtn"
         app:layout_constraintStart_toStartOf="@+id/truthBtn"
@@ -39,7 +101,7 @@
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:background="@drawable/mybtn"
-        android:contentDescription="Dare Button"
+        android:contentDescription="@string/dare_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.946"
@@ -52,9 +114,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Dare"
+        android:text="@string/dare"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/dareBtn"
         app:layout_constraintEnd_toEndOf="@+id/dareBtn"
         app:layout_constraintStart_toStartOf="@+id/dareBtn"
@@ -65,7 +128,7 @@
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:background="@drawable/mybtn"
-        android:contentDescription="Dare Button"
+        android:contentDescription="@string/penalty_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -78,53 +141,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Penalty"
+        android:text="@string/penalty"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/penaltyBtn"
         app:layout_constraintEnd_toEndOf="@+id/penaltyBtn"
         app:layout_constraintStart_toStartOf="@+id/penaltyBtn"
         app:layout_constraintTop_toTopOf="@+id/penaltyBtn" />
 
-
-
-    <ImageView
-        android:id="@+id/ivBottle"
-        android:layout_width="69dp"
-        android:layout_height="200dp"
-        android:src="@drawable/bottles"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/spinBtn"
-        android:layout_width="110dp"
-        android:layout_height="50dp"
-        android:background="@drawable/mybtn"
-        android:contentDescription="Spin Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.792" />
-
-    <TextView
-        android:id="@+id/tvSpin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="casual"
-        android:text="Spin"
-        android:textColor="@color/myDark_blue"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/spinBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/spinBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

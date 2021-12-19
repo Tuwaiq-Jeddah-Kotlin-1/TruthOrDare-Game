@@ -53,7 +53,7 @@ class BottleFragment : Fragment() {
         }
     }
 
-    fun spinBottle() {
+    private fun spinBottle() {
         if (!spinning) {
             val newDir = random.nextInt(2000)
             val pivotX: Float = ivBottle.width / 2f
