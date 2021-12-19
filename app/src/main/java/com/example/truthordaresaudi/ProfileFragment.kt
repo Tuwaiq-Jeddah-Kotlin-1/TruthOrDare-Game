@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 class ProfileFragment : Fragment() {
@@ -20,9 +21,13 @@ class ProfileFragment : Fragment() {
     private val myVM = ViewModel()
     private lateinit var nameProfile: TextView
     private lateinit var emailProfile: TextView
+    private lateinit var arLanguage: ImageView
+    private lateinit var enLanguage: ImageView
     private lateinit var logOut: ImageView
     private lateinit var preferencesSettings: SharedPreferences
     private lateinit var preferences: SharedPreferences
+    private val auth = FirebaseAuth.getInstance()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,68 +49,30 @@ class ProfileFragment : Fragment() {
         nameProfile = view.findViewById(R.id.tvFullName)
         emailProfile = view.findViewById(R.id.tvEmail)
         logOut = view.findViewById(R.id.profileLogoutIcon)
-        val spinnerCity: Spinner = view.findViewById(R.id.languageSpinner)
+        arLanguage = view.findViewById(R.id.ivEnglish)
+        enLanguage = view.findViewById(R.id.ivArabic)
+//        val spinnerLanguage: Spinner = view.findViewById(R.id.languageSpinner)
 
-        preferences = this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
-        val emailPref = preferences.getString("EMAIL", "")
+        preferences =
+            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
+        val emailPref =  emailProfile.text
+        val namePref = preferences.getString("NAME", "")
         emailProfile.text = emailPref
-//        val passwordPref = preferences.getString("PASSWORD", "")
+        nameProfile.text = namePref
+
 
         logOut.setOnClickListener {
             val editor: SharedPreferences.Editor = preferences.edit()
             editor.clear()
             editor.apply()
+            auth.signOut()
             findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
         }
 
-        ArrayAdapter.createFromResource(
-            view.context,
-            R.array.languages,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinnerCity.adapter = adapter
-        }
-        spinnerCity.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parentView: AdapterView<*>?,
-                selectedItemView: View?,
-                position: Int,
-                id: Long
-            ) {
-                langValue = spinnerCity.selectedItem.toString()
-                Toast.makeText(view.context, "Language selected successfully!", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
-        }
-
-        myVM.userInfo().observe(viewLifecycleOwner, {
-            nameProfile.text = it.fullName
-            emailProfile.text = it.email
-        })
 
     }
 
-    private fun showChangeLanguage(){
-        val langItems = arrayOf("عربي","English")
-        val mBuilder = AlertDialog.Builder(this.requireContext())
 
-        mBuilder.setTitle("Choose Language")
-        mBuilder.setSingleChoiceItems(langItems,-1){
-                dialog, which ->
-            if (which ==0){
-                setGameLocale("ar")
-            }else if (which==1){
-                setGameLocale("en")
-            }
-            dialog.dismiss()
-        }
-        val mDialog =mBuilder.create()
-        mDialog.show()
-    }
 
     private fun setGameLocale(localeName: String) {
 

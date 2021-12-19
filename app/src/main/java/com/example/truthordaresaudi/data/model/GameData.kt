@@ -6,6 +6,3 @@ data class GameData(val type: String,
                val id: Int
 )
 
-class GameDataList(val allData: MutableList<GameData>
-)
-

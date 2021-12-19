@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,9 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -38,16 +41,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="FirstName"
+                android:layout_marginStart="10dp"
+                android:text="Full Name"
                 android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvFullName"
                 android:layout_width="300sp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="FirstName"
+                android:layout_marginStart="10dp"
+                android:text="fullName"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -70,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
                 android:text="Email"
                 android:textSize="18sp" />
 
@@ -78,11 +81,75 @@
                 android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:hint="Email"
+                android:layout_marginStart="10dp"
+                android:hint="email"
                 android:textSize="18sp" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2.0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="#88888888" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Language"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/ivEnglish"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.041"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/ivEnglish"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/icen"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.044"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9" />
+
+            <ImageView
+                android:id="@+id/ivArabic"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginEnd="300dp"
+                android:src="@drawable/icsa"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.888" />
+
+
+            <!--            <Spinner-->
+<!--                android:id="@+id/languageSpinner"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:contentDescription="choose the language"-->
+<!--                android:minHeight="48dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.137"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="match_parent"
@@ -101,18 +168,21 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Language"
+                android:layout_marginStart="10dp"
+                android:text="Theme"
                 android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/languageSpinner"
-                android:layout_width="100dp"
+            <Switch
+                android:id="@+id/switch1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.137"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:minHeight="48dp"
+                android:text="Dark Mode"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:ignore="UseSwitchCompatOrMaterialXml" />
 
         </LinearLayout>
 
@@ -158,4 +228,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

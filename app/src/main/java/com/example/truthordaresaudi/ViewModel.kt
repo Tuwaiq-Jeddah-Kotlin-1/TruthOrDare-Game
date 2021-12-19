@@ -7,25 +7,34 @@ import com.example.truthordaresaudi.data.network.GameRepo
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.truthordaresaudi.data.model.GameData
-import com.example.truthordaresaudi.data.model.GameDataList
 import com.example.truthordaresaudi.data.model.Users
+import com.example.truthordaresaudi.data.model.UserSuggestions
 import kotlinx.coroutines.launch
 
 class ViewModel: ViewModel() {
     private val myRepo = GameRepo()
 
-    fun fetchInterestingList(): LiveData<GameDataList> {
-        val tORd = MutableLiveData<GameDataList>()
+    fun dataList(): LiveData<List<GameData>> {
+        val tORd = MutableLiveData<List<GameData>>()
         viewModelScope.launch {
             try {
-                tORd.postValue(myRepo.fetchGameData())
-                tORd.postValue(myRepo.fetchGameDataList())
+                tORd.postValue(myRepo.bringGameData())
 
             }catch (e: Throwable){
                 Log.e("Mock API...","Truth or Dare data Problem ${e.localizedMessage}")
             }
         }
         return tORd
+    }
+
+    fun userRequests(gameVal : UserSuggestions){
+        viewModelScope.launch {
+            try {
+             myRepo.userRequests(gameVal)
+            }catch (e: Throwable){
+                Log.e("Mock API...","Truth or Dare data Problem user requests ${e.localizedMessage}")
+            }
+        }
     }
 
     //From firebase

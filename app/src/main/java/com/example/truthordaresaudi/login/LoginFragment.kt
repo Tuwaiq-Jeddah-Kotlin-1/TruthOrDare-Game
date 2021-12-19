@@ -30,7 +30,6 @@ class LoginFragment : Fragment() {
     private var isRemembered = false
 
 
-    val userEmail: StringBuffer = StringBuffer()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,8 +46,7 @@ class LoginFragment : Fragment() {
         registerNow = view.findViewById(R.id.registerNowBtn)
         rememberMe = view.findViewById(R.id.cbRemember)
 
-        sharedPreferences =
-            this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
+        sharedPreferences = this.requireActivity().getSharedPreferences("preference", Context.MODE_PRIVATE)
         isRemembered = sharedPreferences.getBoolean("CHECKBOX", false)
 
         if (isRemembered) {
@@ -90,11 +88,7 @@ class LoginFragment : Fragment() {
                                 findNavController().navigate(R.id.homeFragment)
 
                             } else {
-                                Toast.makeText(
-                                    context,
-                                    operation.exception!!.message.toString(),
-                                    Toast.LENGTH_LONG
-                                ).show()
+                                Toast.makeText(context, operation.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                             }
                         }
                 }

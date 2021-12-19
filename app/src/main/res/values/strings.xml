@@ -6,4 +6,18 @@
     <string name="clicked_p">Profile clicked</string>
     <string name="welcome">Welcome</string>
     <string name="saved">Info Saved Successfully</string>
+    <string name="truth">Truth</string>
+    <string name="truth_button">Truth Button</string>
+    <string name="penalty_button">Penalty Button</string>
+    <string name="penalty">Penalty</string>
+    <string name="dare_button">Dare Button</string>
+    <string name="dare">Dare</string>
+    <string name="spin_button">Spin Button</string>
+    <string name="spin">Spin</string>
+    <string name="start_button">Start Button</string>
+    <string name="start">Start</string>
+    <string name="bottle_button">Bottle Button</string>
+    <string name="bottle">Bottle</string>
+    <string name="rules_button">Rules Button</string>
+    <string name="game_rules">Game Rules</string>
 </resources>
