@@ -64,6 +64,7 @@ dependencies {
 
     //Material
     implementation 'com.google.android.material:material:1.6.0-alpha01'
+//    implementation 'com.google.android.material:material:1.4.0'
 
     // Retrofit library
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -82,5 +83,9 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     //Work Manager
-    implementation 'androidx.work:work-runtime-ktx:2.7.0'
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    //Lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
 }

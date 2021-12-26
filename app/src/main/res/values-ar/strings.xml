@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">صراحة او جرأة</string>
+    <string name="open">افتح</string>
+    <string name="close">قفل</string>
+    <string name="clicked_p">تم الضغط على البروفايل</string>
+    <string name="welcome">هلا والله</string>
+    <string name="saved">انحفظت معلوماتك بنجاح</string>
+    <string name="truth">صراحة</string>
+    <string name="truth_button">ازرار الحقيقة</string>
+    <string name="penalty_button">ازراز العقوبة</string>
+    <string name="penalty">عقوبة</string>
+    <string name="dare_button">ازرار التحدي</string>
+    <string name="dare">تحدي</string>
+    <string name="spin_button">ازرار اللف</string>
+    <string name="spin">لف القارورة</string>
+    <string name="start_button">ازرار اللعب</string>
+    <string name="start">يلا نلعب</string>
+    <string name="bottle_button">ازرار القارورة</string>
+    <string name="bottle">العب بالقارورة</string>
+    <string name="rules_button">ازرار القوانين</string>
+    <string name="game_rules">قوانين اللعبة</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="don_have_an_account">ما عندك حساب؟</string>
+    <string name="register_now">سجل الآن</string>
+    <string name="remember_me">تذكرني</string>
+    <string name="suggest_new_truth_dare_or_punishment">اقترح سؤال، عقوبة او تحدي جديد</string>
+</resources>
