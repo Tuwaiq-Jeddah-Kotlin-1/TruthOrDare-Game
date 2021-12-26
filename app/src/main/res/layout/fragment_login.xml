@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bckg"
     tools:context=".login.LoginFragment">
 
     <TextView
-        android:id="@+id/tvLogin"
+        android:id="@+id/tvLogin1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="50dp"
         android:fontFamily="casual"
-        android:text="Login"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,11 +33,12 @@
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLogin"
+        app:layout_constraintTop_toBottomOf="@+id/tvLogin1"
         app:startIconDrawable="@drawable/ic_email">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etSignInEmail"
+            android:background="#CBFFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp" />
@@ -62,33 +63,62 @@
             android:id="@+id/etSignInPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#CBFFFFFF"
+
             android:inputType="textPassword"
 
             android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <Button
+<!--    <Button-->
+<!--        android:id="@+id/loginBtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Login"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <ImageButton
         android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="@string/start_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/cbRemember" />
 
+    <TextView
+        android:id="@+id/tvLogin"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="casual"
+        android:textStyle="bold"
+        android:text="@string/login"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/loginBtn" />
 
     <CheckBox
         android:id="@+id/cbRemember"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="remember me"
+        android:text="@string/remember_me"
         android:textColor="@color/myLight_blue"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/loginBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +129,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account?"
+        android:text="@string/don_have_an_account"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +142,7 @@
         android:id="@+id/registerNowBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register now"
+        android:text="@string/register_now"
         android:textColor="@color/myLight_blue"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

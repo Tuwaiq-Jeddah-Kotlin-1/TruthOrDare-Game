@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">TruthOrDareSaudi</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="clicked_p">Profile clicked</string>
@@ -20,4 +19,9 @@
     <string name="bottle">Bottle</string>
     <string name="rules_button">Rules Button</string>
     <string name="game_rules">Game Rules</string>
+    <string name="login">Login</string>
+    <string name="don_have_an_account">Don\'t have an account?</string>
+    <string name="register_now">Register now</string>
+    <string name="remember_me">Remember me</string>
+    <string name="suggest_new_truth_dare_or_punishment"><u><b>Suggest new Truth, Dare or Punishment</b></u></string>
 </resources>

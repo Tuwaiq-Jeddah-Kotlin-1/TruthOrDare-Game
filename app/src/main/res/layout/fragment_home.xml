@@ -9,42 +9,87 @@
 
     <ImageView
         android:id="@+id/profile"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@drawable/prof"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="profile"
+        android:src="@drawable/profyt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintHorizontal_bias="0.019"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069"
-        android:contentDescription="profile" />
+        app:layout_constraintVertical_bias="0.01" />
+
+    <TextView
+        android:id="@+id/letsPlay"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/amita"
+        android:gravity="center"
+        android:text="Let's \n Play !"
+        android:textColor="@color/myPlayYellow"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="300dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/backg" />
 
     <ImageView
         android:id="@+id/shareIcon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:contentDescription="share"
-        android:src="@drawable/shareic"
+        android:src="@drawable/shareicyf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.843"
+        app:layout_constraintHorizontal_bias="0.018"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <ImageView
-        android:id="@+id/settingsIcon"
+        android:id="@+id/loginIcon"
         android:layout_width="35dp"
         android:layout_height="35dp"
-        android:contentDescription="settings"
-        android:src="@drawable/settingsic"
+        android:contentDescription="login"
+        android:src="@drawable/loginyf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.957"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="Login"
+        android:textColor="@color/myDark_blue"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginIcon" />
 
     <ImageButton
         android:id="@+id/startBtn"
@@ -53,25 +98,26 @@
         android:background="@drawable/mybtn"
         android:contentDescription="@string/start_button"
         app:layout_constraintBottom_toTopOf="@id/bottleBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvLogin"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvLogin"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.811" />
 
     <TextView
-        android:id="@+id/tvStart"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvLogin"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:textStyle="bold|italic"
+        android:gravity="center"
         android:text="@string/start"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="@+id/startBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottleBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/bottleBtn"
         app:layout_constraintTop_toTopOf="@+id/startBtn" />
 
 
@@ -82,25 +128,26 @@
         android:background="@drawable/mybtn"
         android:contentDescription="@string/bottle_button"
         app:layout_constraintBottom_toTopOf="@id/rulesBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvBottle"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvBottle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.873" />
 
     <TextView
         android:id="@+id/tvBottle"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:textStyle="bold|italic"
+        android:gravity="center"
         android:text="@string/bottle"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="@+id/bottleBtn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rulesBtn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/rulesBtn"
         app:layout_constraintTop_toTopOf="@+id/bottleBtn" />
 
     <ImageButton
@@ -110,29 +157,42 @@
         android:background="@drawable/mybtn"
         android:contentDescription="@string/rules_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvRules"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvRules"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.643" />
+        app:layout_constraintVertical_bias="0.776" />
 
     <TextView
         android:id="@+id/tvRules"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:textStyle="bold|italic"
+        android:gravity="center"
         android:text="@string/game_rules"
         android:textColor="@color/myDark_blue"
         android:textSize="19sp"
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="@+id/rulesBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rulesBtn"
+        app:layout_constraintVertical_bias="0.476" />
+
+    <TextView
+        android:id="@+id/tvSuggestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:text="@string/suggest_new_truth_dare_or_punishment"
+        android:textColor="@color/myDark_blue"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rulesBtn" />
-
-
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.873" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
