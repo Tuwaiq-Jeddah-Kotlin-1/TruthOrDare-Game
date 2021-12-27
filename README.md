@@ -2,15 +2,19 @@
 This is my final graduation project from Tuwaiq Academy that supports Tuwaiq 1000 program.
 
 
-#:scroll:Description
+Description :scroll:
+--
+Libraries and used technlologies:
+
+
+Motivation and Context :bulb:
 --
 
 
-#Used Technologies
+App Media :floppy_disk:
 --
 
-#App Media
+
+Trello board :pencil:
 --
 
-#Trello board
---
