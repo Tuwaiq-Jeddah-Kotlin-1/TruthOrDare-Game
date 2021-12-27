@@ -4,7 +4,6 @@ This is my final graduation project from Tuwaiq Academy that supports Tuwaiq 100
 
 Description :scroll:
 --
-Libraries and used technlologies:
 
 
 Motivation and Context :bulb:
