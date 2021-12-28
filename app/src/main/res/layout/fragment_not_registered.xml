@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bckg"
+    tools:context=".ui.NotRegisteredFragment">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationSad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="411dp"
+        android:layout_marginBottom="584dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_rawRes="@raw/sad" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:text="You are not registered yet \n register now to view your profile"
+        android:textSize="20sp"
+        android:fontFamily="casual"
+        android:textColor="@color/myDark_blue"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lottieAnimationSad" />
+
+    <ImageButton
+        android:id="@+id/registerBtn1"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="244dp"
+        android:background="@drawable/mybtn"
+        android:contentDescription="@string/start_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRegister1"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="@color/myDark_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/registerBtn1"
+        app:layout_constraintEnd_toEndOf="@+id/registerBtn1"
+        app:layout_constraintStart_toStartOf="@+id/registerBtn1"
+        app:layout_constraintTop_toTopOf="@+id/registerBtn1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

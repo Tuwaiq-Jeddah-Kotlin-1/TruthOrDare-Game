@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TruthOrDareSaudi</string>
+    <string name="app_name">TruthOrDare</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="clicked_p">Profile clicked</string>
@@ -24,4 +24,6 @@
     <string name="register_now">Register now</string>
     <string name="remember_me">Remember me</string>
     <string name="suggest_new_truth_dare_or_punishment"><u><b>Suggest new Truth, Dare or Punishment</b></u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="let_s_n_play" translatable="false">Let\'s \n Play !</string>
 </resources>

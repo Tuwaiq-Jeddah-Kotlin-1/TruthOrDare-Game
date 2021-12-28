@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bckg"
-    tools:context=".HomeFragment">
+    tools:context=".ui.HomeFragment">
 
     <ImageView
         android:id="@+id/profile"
@@ -27,7 +27,7 @@
         android:elevation="5dp"
         android:fontFamily="@font/amita"
         android:gravity="center"
-        android:text="Let's \n Play !"
+        android:text="@string/let_s_n_play"
         android:textColor="@color/myPlayYellow"
         android:textSize="25sp"
         android:textStyle="bold|italic"
@@ -79,6 +79,7 @@
 
 
     <TextView
+        android:id="@+id/tv_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"

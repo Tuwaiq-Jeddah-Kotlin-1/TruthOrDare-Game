@@ -3,31 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.truthordare.login.LoginFragment"
+        android:name="com.example.truthordaresaudi.useraccount.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/RegisterFragment" />
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
-        android:name="com.example.truthordare.login.RegisterFragment"
+        android:name="com.example.truthordaresaudi.useraccount.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.truthordare.HomeFragment"
+        android:name="com.example.truthordaresaudi.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -45,10 +49,13 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notRegisteredFragment"
+            app:destination="@id/notRegisteredFragment" />
     </fragment>
     <fragment
         android:id="@+id/playFragment"
-        android:name="com.example.truthordare.PlayFragment"
+        android:name="com.example.truthordaresaudi.ui.PlayFragment"
         android:label="fragment_play"
         tools:layout="@layout/fragment_play" >
         <action
@@ -59,17 +66,17 @@
     </fragment>
     <fragment
         android:id="@+id/bottleFragment"
-        android:name="com.example.truthordare.BottleFragment"
+        android:name="com.example.truthordaresaudi.ui.BottleFragment"
         android:label="fragment_bottle"
         tools:layout="@layout/fragment_bottle" />
     <fragment
         android:id="@+id/rulesFragment"
-        android:name="com.example.truthordare.RulesFragment"
+        android:name="com.example.truthordaresaudi.ui.RulesFragment"
         android:label="fragment_rules"
         tools:layout="@layout/fragment_rules" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.truthordare.ProfileFragment"
+        android:name="com.example.truthordaresaudi.ui.ProfileFragment"
         android:label="fragment_rules"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -78,5 +85,27 @@
         <action
             android:id="@+id/action_profileFragment_self"
             app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notRegisteredFragment"
+        android:name="com.example.truthordaresaudi.ui.NotRegisteredFragment"
+        android:label="fragment_not_registered"
+        tools:layout="@layout/fragment_not_registered" >
+        <action
+            android:id="@+id/action_notRegisteredFragment_to_RegisterFragment"
+            app:destination="@id/RegisterFragment"
+            app:popUpTo="@id/notRegisteredFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.truthordaresaudi.ui.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/splash_in"
+            app:exitAnim="@anim/splash_out" />
     </fragment>
 </navigation>
