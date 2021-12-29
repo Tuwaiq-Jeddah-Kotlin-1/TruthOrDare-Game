@@ -182,7 +182,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
-        app:layout_constraintVertical_bias="0.699" />
+        app:layout_constraintVertical_bias="0.855" />
 
     <TextView
         android:id="@+id/textView7"
@@ -203,7 +203,7 @@
         android:layout_width="40dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/enflag"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
@@ -212,8 +212,8 @@
         android:id="@+id/ivArabic"
         android:layout_width="40dp"
         android:layout_height="35dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/saflag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

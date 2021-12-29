@@ -181,8 +181,8 @@ class HomeFragment : Fragment() {
 
     private fun shareApp() {
         val intent = Intent(Intent.ACTION_SEND)
-        intent.type = "text/uri-list"
-        intent.putExtra("Share App", appUrl)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/")
         startActivity(intent)
     }
 

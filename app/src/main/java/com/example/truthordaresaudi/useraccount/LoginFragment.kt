@@ -45,7 +45,7 @@ class LoginFragment : Fragment() {
 
 
         rememberMe.setOnClickListener {
-                isRemembered = !isRemembered
+            isRemembered = !isRemembered
         }
 
         registerNow.setOnClickListener {
@@ -53,38 +53,69 @@ class LoginFragment : Fragment() {
         }
 
         loginBtn.setOnClickListener {
-            when {
-                TextUtils.isEmpty(loginEmail.text.toString().trim { it <= ' ' }) -> {
-                    Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
+            if (myVM.checkInternetConnection(view.context)) {
+                when {
+                    TextUtils.isEmpty(loginEmail.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
+                    }
+
+                    TextUtils.isEmpty(loginPassword.text.toString().trim { it <= ' ' }) -> {
+                        Toast.makeText(context, "Please Enter Password", Toast.LENGTH_LONG).show()
+                    }
+                    else -> {
+                        signIn()
+                    }
                 }
 
-                TextUtils.isEmpty(loginPassword.text.toString().trim { it <= ' ' }) -> {
-                    Toast.makeText(context, "Please Enter Password", Toast.LENGTH_LONG).show()
+                /* else -> {
+                        val email: String = loginEmail.text.toString().trim { it <= ' ' }
+                        val password: String = loginPassword.text.toString().trim { it <= ' ' }
 
-                }
-                else -> {
-                    val email: String = loginEmail.text.toString().trim { it <= ' ' }
-                    val password: String = loginPassword.text.toString().trim { it <= ' ' }
-
-                    // create an instance and create a register with email and passwords
-                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener { operation ->
-                            if (operation.isSuccessful) {
-                                myVM.saveRememberMe(isRemembered)
-                                myVM.getUserInfo()
-//                                Toast.makeText(context, "Welcome \uD83C\uDF89", Toast.LENGTH_LONG).show()
-                                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
-
-                            } else {
-                                Toast.makeText(
-                                    context,
-                                    operation.exception!!.message.toString(),
-                                    Toast.LENGTH_LONG
-                                ).show()
+                        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener { operation ->
+                                if (operation.isSuccessful) {
+                                    myVM.saveRememberMe(isRemembered)
+                                    myVM.getUserInfo()
+                                    Toast.makeText(context, "Welcome again \uD83C\uDF89 !", Toast.LENGTH_LONG).show()
+                                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                                } else {
+                                    Toast.makeText(context, operation.exception!!.message.toString(), Toast.LENGTH_LONG).show()
+                                }
                             }
-                        }
+
+                 }*/
+            }else{
+                Toast.makeText(context, "No internet connection", Toast.LENGTH_LONG).show()
+            }
+            /*     if(myVM.checkInternetConnection(view.context)) {
+                 signIn()
+             }else{
+                 Toast.makeText(context, "You don't have internet connection", Toast.LENGTH_LONG).show()*/
+//        }
+        }
+    }
+
+    private fun signIn() {
+        val email: String = loginEmail.text.toString().trim { it <= ' ' }
+        val password: String = loginPassword.text.toString().trim { it <= ' ' }
+
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { operation ->
+                if (operation.isSuccessful) {
+                    myVM.saveRememberMe(isRemembered)
+                    myVM.getUserInfo()
+                    Toast.makeText(context, "Welcome again \uD83C\uDF89 !", Toast.LENGTH_LONG)
+                        .show()
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                } else {
+                    Toast.makeText(
+                        context,
+                        operation.exception!!.message.toString(),
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
             }
-        }
+
+
     }
 }
