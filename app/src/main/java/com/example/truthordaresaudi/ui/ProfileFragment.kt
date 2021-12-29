@@ -1,7 +1,6 @@
 package com.example.truthordaresaudi.ui
 
 import android.app.Activity
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
@@ -13,14 +12,18 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
-import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.MyViewModel
 import com.example.truthordaresaudi.R
 import com.google.firebase.auth.FirebaseAuth
 import java.util.*
+import android.widget.Toast
+
+import com.google.firebase.auth.FirebaseUser
+
+import com.google.firebase.firestore.FirebaseFirestore
+
 
 class ProfileFragment : Fragment() {
 
@@ -29,9 +32,16 @@ class ProfileFragment : Fragment() {
     private lateinit var arLanguage: ImageView
     private lateinit var enLanguage: ImageView
     private lateinit var logOut: ImageView
-    private lateinit var editProfile: ImageView
-    private val auth = FirebaseAuth.getInstance()
+    private lateinit var editName: ImageView
     private lateinit var myVM : MyViewModel
+    private lateinit var saveName : ImageView
+    private lateinit var deleteAccount : TextView
+
+    private val userAuth = FirebaseAuth.getInstance()
+    private val fireStore = FirebaseFirestore.getInstance()
+    private val currentUser = userAuth.currentUser
+    private val userId = FirebaseAuth.getInstance().currentUser?.uid
+
 
 
     override fun onCreateView(
@@ -50,12 +60,17 @@ class ProfileFragment : Fragment() {
         logOut = view.findViewById(R.id.profileLogoutIcon)
         arLanguage = view.findViewById(R.id.ivArabic)
         enLanguage = view.findViewById(R.id.ivEnglish)
-        editProfile = view.findViewById(R.id.profileEditIcon)
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
+        editName = view.findViewById(R.id.profileEditIcon)
+        saveName = view.findViewById(R.id.saveName)
+        deleteAccount = view.findViewById(R.id.deleteAccount)
+
+
+
+        saveName.visibility = View.GONE
 
         nameProfile.isEnabled = false
 
-        if (uid != null) {
+        if (userId != null) {
             nameProfile.setText(myVM.userInfo.fullName)
             emailProfile.text = myVM.userInfo.email
         }
@@ -86,7 +101,7 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        /*myVM.readLanguage.observe(viewLifecycleOwner,{
+       /* myVM.readLanguage.observe(viewLifecycleOwner,{
             if (it == "ar"){
                 Log.e("ProfileFragmentTheme","it = arabic")
                 setLocale(requireActivity(), "ar")
@@ -99,7 +114,7 @@ class ProfileFragment : Fragment() {
 
         logOut.setOnClickListener {
             myVM.saveRememberMe(false)
-            auth.signOut()
+            userAuth.signOut()
             findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
         }
 
@@ -114,29 +129,46 @@ class ProfileFragment : Fragment() {
             setLocale(requireActivity(), "en")
         }
 
-        editProfile.setOnClickListener {
+        editName.setOnClickListener {
             nameProfile.isEnabled = true
-            myVM.updateUser(nameProfile.text.toString())
+            saveName.visibility = View.VISIBLE
+            editName.visibility = View.GONE
+
+            saveName.setOnClickListener {
+                myVM.updateUser(nameProfile.text.toString())
+                nameProfile.isEnabled = false
+                saveName.visibility = View.GONE
+                editName.visibility = View.VISIBLE
+            }
+        }
+
+        deleteAccount.setOnClickListener {
+            myVM.checkConnection(view.context)
+            deleteUserAccount(currentUser)
         }
     }
 
-
     private fun setLocale(activity: Activity, languageCode: String) {
-        val refresh = Intent(context, MyMainActivity::class.java)
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val resources = activity.resources
         val config: Configuration = resources.configuration
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
-        startActivity(refresh)
+        findNavController().navigate(R.id.action_profileFragment_self)
     }
 
-//    fun userData(){
-//        myVM.userInfo().observe(viewLifecycleOwner, {
-//            nameProfile.text = it.fullName
-//            emailProfile.text = it.email
-//        })
-//    }
+    private fun deleteUserAccount(currentUser : FirebaseUser?){
+        currentUser!!.delete().addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(context, "Your profile deleted successfully", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
+                fireStore.collection("Users").document(currentUser.uid).delete()
+            }
+        }.addOnFailureListener { e ->
+            Log.e("addOnFailureListener", "addOnFailureListener", e)
+        }
+    }
+
 }
 

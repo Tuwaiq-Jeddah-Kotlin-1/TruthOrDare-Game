@@ -190,11 +190,7 @@ class HomeFragment : Fragment() {
         val suggestions = UserSuggestions()
         suggestions.suggestion = value.text.toString()
         myVM.userRequests(suggestions, view.context, view)
-        Toast.makeText(
-            context,
-            "Thank you for being a part of this game \uD83E\uDD73",
-            Toast.LENGTH_LONG
-        ).show()
+        Toast.makeText(context, "Thank you for being a part of this game \uD83E\uDD73", Toast.LENGTH_LONG).show()
     }
 
 }

@@ -101,7 +101,7 @@ class RegisterFragment : Fragment() {
     private fun createUser(){
 
             auth.createUserWithEmailAndPassword(
-                registerEmail.text.toString().trim().lowercase(),
+                registerEmail.text.toString().trim().toLowerCase(),
                 registerPassword.text.toString().trim()
             ).addOnCompleteListener { register ->
 

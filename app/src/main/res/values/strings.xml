@@ -24,6 +24,15 @@
     <string name="register_now">Register now</string>
     <string name="remember_me">Remember me</string>
     <string name="suggest_new_truth_dare_or_punishment"><u><b>Suggest new Truth, Dare or Punishment</b></u></string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="let_s_n_play" translatable="false">Let\'s \n Play !</string>
+    <string name="let_s_n_play">Let\'s \n Play !</string>
+    <string name="profile">Profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="theme">Theme</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="save_name">Save name</string>
+    <string name="edit">edit</string>
+    <string name="log_out">log out</string>
+    <string name="language">Language</string>
+    <string name="delete_my_account"><u>Delete My Account</u></string>
 </resources>

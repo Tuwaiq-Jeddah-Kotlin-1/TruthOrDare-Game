@@ -93,15 +93,12 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
         }
  }
 
-    fun updateUser(name: String){
+    fun updateUser(username: String) {
         viewModelScope.launch {
-            try {
-                myRepo.updateUser(name)
-            }catch (e: Throwable){
-                Log.e("updateUserVM","Error from VM ${e.localizedMessage}")
-            }
+            myRepo.updateUser(username)
         }
     }
+
 
 
 

@@ -22,7 +22,18 @@
     <string name="game_rules">قوانين اللعبة</string>
     <string name="login">تسجيل الدخول</string>
     <string name="don_have_an_account">ما عندك حساب؟</string>
-    <string name="register_now">سجل الآن</string>
+    <string name="register_now">سجل دحين</string>
     <string name="remember_me">تذكرني</string>
     <string name="suggest_new_truth_dare_or_punishment">اقترح سؤال، عقوبة او تحدي جديد</string>
+    <string name="let_s_n_play">يلا نلعب!</string>
+    <string name="profile">الملف الشخصي</string>
+    <string name="full_name">الاسم</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="theme">المظهر</string>
+    <string name="dark_mode">المظهر الداكن</string>
+    <string name="save_name">حفظ الاسم</string>
+    <string name="edit">تعديل</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="language">اللغة</string>
+    <string name="delete_my_account">احذف حسابي</string>
 </resources>

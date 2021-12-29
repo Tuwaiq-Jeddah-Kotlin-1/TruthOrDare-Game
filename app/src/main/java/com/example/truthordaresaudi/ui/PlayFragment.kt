@@ -234,8 +234,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                 }
             })
         } else {
-            Toast.makeText(view.context, "No Internet connection, play offline ", Toast.LENGTH_LONG)
-                .show()
+            Toast.makeText(view.context, "No Internet connection, play offline ", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_playFragment_to_bottleFragment)
 
         }
