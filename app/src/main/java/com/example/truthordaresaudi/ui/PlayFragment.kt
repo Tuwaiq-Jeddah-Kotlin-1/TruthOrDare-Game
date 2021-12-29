@@ -130,7 +130,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         }
 
 
-        if (myVM.checkConnection(view.context)) {
+        if (myVM.checkInternetConnection(view.context)) {
             myVM.dataList(view.context).observe(viewLifecycleOwner, { it ->
                 val truthList: List<GameData> = it.filter { it.type == "truth" }
                 val dareList: List<GameData> = it.filter { it.type == "dare" }

@@ -12,7 +12,6 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
 import androidx.lifecycle.*
-import androidx.lifecycle.ViewModel
 import com.example.truthordaresaudi.data.repo.DataStoreRepo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -66,7 +65,7 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
             }
     }
 
-    fun checkConnection(context: Context): Boolean {
+    fun checkInternetConnection(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
         val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false

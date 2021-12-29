@@ -143,7 +143,7 @@ class ProfileFragment : Fragment() {
         }
 
         deleteAccount.setOnClickListener {
-            myVM.checkConnection(view.context)
+            myVM.checkInternetConnection(view.context)
             deleteUserAccount(currentUser)
         }
     }
@@ -161,7 +161,7 @@ class ProfileFragment : Fragment() {
     private fun deleteUserAccount(currentUser : FirebaseUser?){
         currentUser!!.delete().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(context, "Your profile deleted successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Your Account Deleted Successfully", Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
                 fireStore.collection("Users").document(currentUser.uid).delete()
             }

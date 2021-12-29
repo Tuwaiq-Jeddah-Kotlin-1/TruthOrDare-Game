@@ -68,48 +68,72 @@ class RegisterFragment : Fragment() {
         }
 
         registerBtn.setOnClickListener {
-            when {
-                TextUtils.isEmpty(registerEmail.text.toString().trim()) -> {
-                    Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
+             if(myVM.checkInternetConnection(view.context)){
+//                 Toast.makeText(context, "there is internet connection", Toast.LENGTH_LONG).show()
 
-                }
 
-                TextUtils.isEmpty(registerPassword.text.toString().trim { it <= ' ' }) -> {
-                    Toast.makeText(context, "Please Enter Password", Toast.LENGTH_LONG).show()
+                 when {
+                   /*  (!myVM.checkInternetConnection(view.context)) -> {
+                         Toast.makeText(context, "No internet connection", Toast.LENGTH_LONG).show()
+                     }*/
+                     TextUtils.isEmpty(registerEmail.text.toString().trim()) -> {
+                         Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
 
-                }
-                TextUtils.isEmpty(registerConfirmPassword.text.toString().trim { it <= ' ' }) -> {
-                    Toast.makeText(context, "Please Enter Password Confirmation", Toast.LENGTH_LONG).show()
+                     }
+                     TextUtils.isEmpty(registerName.text.toString().trim { it <= ' ' }) -> {
+                         Toast.makeText(context, "Please Enter Your Full Name", Toast.LENGTH_LONG).show()
 
-                }
-                TextUtils.isEmpty(registerName.text.toString().trim { it <= ' ' }) -> {
-                    Toast.makeText(context, "Please Enter Your Full Name", Toast.LENGTH_LONG).show()
+                     }
+                     TextUtils.isEmpty(registerPassword.text.toString().trim { it <= ' ' }) -> {
+                         Toast.makeText(context, "Please Enter Password", Toast.LENGTH_LONG).show()
 
-                }
-                else -> {
-                    if (registerPassword.text.toString() == registerConfirmPassword.text.toString()) {
-                        createUser()
+                     }
+                     TextUtils.isEmpty(registerConfirmPassword.text.toString().trim { it <= ' ' }) -> {
+                         Toast.makeText(context, "Please Enter Password Confirmation", Toast.LENGTH_LONG).show()
 
-                    } else {
-                        Toast.makeText(this.context, "Password is not equal Password Confirmation", Toast.LENGTH_LONG).show()
-                    }
-                }
+                     }
+
+                     registerPassword.text.toString() != registerConfirmPassword.text.toString() -> {
+                         Toast.makeText(context, "Password Should Match Password Confirmation", Toast.LENGTH_LONG).show()
+                     }
+
+                     else -> {
+                         createUser()
+                     }
+                 }
+            }else{
+                Toast.makeText(context, "No internet connection", Toast.LENGTH_LONG).show()
             }
+
+
+            /*  if(registerPassword.text.toString() == registerConfirmPassword.text.toString()) {
+                createUser()
+            }else{
+                    Toast.makeText(context, "Password is not equal Password Confirmation", Toast.LENGTH_LONG).show()
+                }*/
+//checking connection
+            /* if(registerPassword.text.toString() != registerConfirmPassword.text.toString()) {
+//                createUser()
+               Toast.makeText(context, "Password is not equal Password Confirmation", Toast.LENGTH_LONG).show()
+           } else if(!myVM.noInternetConnection(view.context)) {
+               createUser()
+           }else{
+               Toast.makeText(context, "You don't have internet connection", Toast.LENGTH_LONG).show()
+           }*/
+
+
         }
     }
 
-    private fun createUser(){
-
+     private fun createUser(){
             auth.createUserWithEmailAndPassword(
                 registerEmail.text.toString().trim().toLowerCase(),
                 registerPassword.text.toString().trim()
             ).addOnCompleteListener { register ->
-
                 if (register.isSuccessful) {
                     myVM.saveRememberMe(isRemembered)
                     myVM.getUserInfo()
-                    Toast.makeText(context, "You registered successfully  \uD83C\uDF89", Toast.LENGTH_LONG).show()
-                    //successful authentication + generate UID
+                    Toast.makeText(context, "Welcome ${registerName.text.toString()} \uD83C\uDF89 !", Toast.LENGTH_LONG).show()
                     saveUserData(registerEmail.text.toString(), registerName.text.toString())
 
                 } else {
@@ -131,7 +155,6 @@ class RegisterFragment : Fragment() {
         val uid = FirebaseAuth.getInstance().currentUser?.uid
         try {
             db.collection("Users").document("$uid").set(newUser).addOnSuccessListener {
-//                Toast.makeText(context, "Successfully saved data.", Toast.LENGTH_SHORT).show()
             }
         } catch (e: Exception) {
             Log.e("Exception", e.localizedMessage)

@@ -39,12 +39,29 @@ class SplashFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
+        supportActionBar?.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
+        supportActionBar?.show()
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //hide action bar
        /* val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
         supportActionBar?.hide()*/
+
+
+
+
 
         compose_splash.setContent {
             MaterialTheme {
@@ -91,7 +108,8 @@ fun splashCompose(sizeState: Size, rotateState: Float) {
                 .size(
                     sizeState.width.dp,
                     sizeState.height.dp
-                ).offset(x= 50.dp), painter = painterResource(id = R.drawable.mylogo), contentDescription = "logo"
+                )
+                .offset(x = 50.dp), painter = painterResource(id = R.drawable.mylogo), contentDescription = "logo"
         )
        /* Image(
             modifier = Modifier
