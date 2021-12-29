@@ -27,10 +27,9 @@ class DataStoreRepo(private val context: Context) {
         }
     }
 
-    suspend fun saveTheme(theme :Boolean){ //, checked:Boolean
+    suspend fun saveTheme(theme :Boolean){
         context.dataStore.edit { preferences ->
             preferences[MyKeys.appTheme] = theme
-//            preferences[MyKeys.appTheme] = checked
         }
     }
 

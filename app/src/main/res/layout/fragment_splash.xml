@@ -6,11 +6,10 @@
     tools:context=".ui.SplashFragment">
 
 
-    <ImageView
-        android:id="@+id/logo"
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/compose_splash"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/mylogo"
-        />
+        android:layout_height="match_parent"/>
 
 </FrameLayout>

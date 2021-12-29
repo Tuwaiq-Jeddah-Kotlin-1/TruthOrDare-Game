@@ -14,7 +14,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginEnd="163dp"
         android:fontFamily="casual"
-        android:text="Profile"
+        android:text="@string/profile"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="4dp"
-        android:text="Full Name"
+        android:text="@string/full_name"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tvFullName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="16dp"
-        android:hint="fullName"
+        android:hint="@string/full_name"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent" />
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Email"
+        android:text="@string/email"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="16dp"
-        android:hint="email"
+        android:hint="@string/email"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/view3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +93,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
+    <!--  <ImageView
         android:id="@+id/settings"
         android:layout_width="20dp"
         android:layout_height="20dp"
@@ -107,13 +107,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline4"
         app:layout_constraintVertical_bias="0.0" />
-
+-->
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="Theme"
+        android:text="@string/theme"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/switchTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -128,18 +128,42 @@
         android:layout_marginTop="72dp"
         android:layout_weight="1"
         android:minHeight="48dp"
-        android:text="Dark Mode"
+        android:text="@string/dark_mode"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view3"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <View
+        android:id="@+id/view4"
+        android:layout_width="match_parent"
+        android:layout_height="2.0dp"
+        android:layout_marginBottom="4dp"
+        android:background="#88888888"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/saveName"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@string/save_name"
+        android:src="@drawable/done"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toEndOf="@+id/tvFullName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.779" />
+
     <ImageView
         android:id="@+id/profileEditIcon"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:contentDescription="settings"
+        android:contentDescription="@string/edit"
         android:src="@drawable/editicy"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,36 +177,48 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
-        android:contentDescription="settings"
+        android:contentDescription="@string/log_out"
         android:src="@drawable/logouty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:layout_constraintVertical_bias="0.699" />
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/language"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/ivEnglish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="0.157" />
+
     <ImageView
         android:id="@+id/ivEnglish"
         android:layout_width="40dp"
         android:layout_height="35dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/enflag"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivArabic"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <ImageView
         android:id="@+id/ivArabic"
         android:layout_width="40dp"
         android:layout_height="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/saflag"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switchTheme" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/ivEnglish"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -204,5 +240,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.62" />
+
+    <TextView
+        android:id="@+id/deleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_my_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        app:layout_constraintVertical_bias="0.933" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
