@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">صراحة او جرأة</string>
+    <string name="app_name">تحدي ولا حقيقة</string>
     <string name="open">افتح</string>
     <string name="close">قفل</string>
     <string name="clicked_p">تم الضغط على البروفايل</string>
     <string name="welcome">هلا والله</string>
     <string name="saved">انحفظت معلوماتك بنجاح</string>
-    <string name="truth">صراحة</string>
+    <string name="truth">حقيقة</string>
     <string name="truth_button">ازرار الحقيقة</string>
     <string name="penalty_button">ازراز العقوبة</string>
     <string name="penalty">عقوبة</string>
@@ -15,25 +15,29 @@
     <string name="spin_button">ازرار اللف</string>
     <string name="spin">لف القارورة</string>
     <string name="start_button">ازرار اللعب</string>
-    <string name="start">يلا نلعب</string>
+    <string name="start">يلا نبدأ</string>
     <string name="bottle_button">ازرار القارورة</string>
     <string name="bottle">العب بالقارورة</string>
     <string name="rules_button">ازرار القوانين</string>
     <string name="game_rules">قوانين اللعبة</string>
     <string name="login">تسجيل الدخول</string>
     <string name="don_have_an_account">ما عندك حساب؟</string>
-    <string name="register_now">سجل دحين</string>
+    <string name="register_now">سوي حساب جديد\\</string>
     <string name="remember_me">تذكرني</string>
-    <string name="suggest_new_truth_dare_or_punishment">اقترح سؤال، عقوبة او تحدي جديد</string>
+    <string name="suggest_new_truth_dare_or_punishment"><u>اقترح سؤال، عقوبة او تحدي جديد</u></string>
     <string name="let_s_n_play">يلا نلعب!</string>
     <string name="profile">الملف الشخصي</string>
     <string name="full_name">الاسم</string>
     <string name="email">البريد الالكتروني</string>
     <string name="theme">المظهر</string>
-    <string name="dark_mode">المظهر الداكن</string>
+    <string name="dark_mode">الوضع الداكن</string>
     <string name="save_name">حفظ الاسم</string>
     <string name="edit">تعديل</string>
     <string name="log_out">تسجيل الخروج</string>
     <string name="language">اللغة</string>
-    <string name="delete_my_account">احذف حسابي</string>
+    <string name="delete_my_account"><u>احذف حسابي</u></string>
+    <string name="send_suggestion">ارسل الاقتراح</string>
+    <string name="enter_your_suggestion">اكتب اقتراحك هنا</string>
+    <string name="chosen_value">القيمة المختارة</string>
+    <string name="truth_or_dare">تحدي ولا حقيقة😉؟</string>
 </resources>

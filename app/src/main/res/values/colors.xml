@@ -18,6 +18,9 @@
     <color name="myDark_blue1">#0B1D6F  </color>
     <color name="grayBkgLight">#B9F4F4F4  </color>
     <color name="grayBkgDark">#B97C7C7C</color>
+    <color name="textColors">#282f77</color>
+    <color name="textBackground">#D2F8F8F8</color>
+
 
 
 </resources>

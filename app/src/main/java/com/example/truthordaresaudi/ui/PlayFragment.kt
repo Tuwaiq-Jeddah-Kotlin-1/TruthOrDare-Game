@@ -80,16 +80,6 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         Log.d("Check data", "waiting..")
         retrieveGameData(view)
 
-        /*myVM.readLanguage.observe(viewLifecycleOwner,{
-            if (it == "ar"){
-                Log.e("ProfileFragmentTheme","it = arabic")
-                selectedLanguage = "ar"
-            }else{
-                Log.e("ProfileFragmentTheme","it = english")
-                selectedLanguage = "en"
-
-            }
-        })*/
 
     }
 
@@ -102,10 +92,14 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
 
             override fun onFinish() {
                 Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
+                Log.e("OnFinish", "From truth timer")
                 tvTimer.text = "Finished!"
                 timerAnim.visibility = View.INVISIBLE
             }
         }
+
+        Log.e("OnFinish", "After truth timer")
+
 
         val dareTimer = object : CountDownTimer(150000, 1000) {
             override fun onTick(millis: Long) {
@@ -122,8 +116,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
             }
 
             override fun onFinish() {
-                Toast.makeText(context, "Done!", Toast.LENGTH_LONG)
-                    .show()
+                Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
                 tvTimer.text = "Finished!"
                 timerAnim.visibility = View.INVISIBLE
             }

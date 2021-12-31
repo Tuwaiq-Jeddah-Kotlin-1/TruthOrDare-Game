@@ -35,4 +35,8 @@
     <string name="log_out">log out</string>
     <string name="language">Language</string>
     <string name="delete_my_account"><u>Delete My Account</u></string>
+    <string name="send_suggestion">Send suggestion</string>
+    <string name="enter_your_suggestion">Enter your suggestion</string>
+    <string name="chosen_value">chosen value</string>
+    <string name="truth_or_dare">Truth or Dare😉?</string>
 </resources>

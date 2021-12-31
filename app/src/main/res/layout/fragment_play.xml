@@ -12,7 +12,7 @@
         android:id="@+id/timerAnim"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.7"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,18 +21,19 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/timer" />
 
+
+<!--    android:background="@color/textBackground"-->
     <TextView
         android:id="@+id/tvGameValue"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C1FFFFFF"
         android:padding="15dp"
         android:fontFamily="casual"
         android:textStyle="bold"
         android:gravity="center"
-        android:hint="chosen value"
-        android:text="Truth or Dare😉?"
-        android:textColor="@color/myDark_blue"
+        android:hint="@string/chosen_value"
+        android:text="@string/truth_or_dare"
+        android:textColor="@color/textColors"
         android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/spinBtn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,18 +84,21 @@
 
     <TextView
         android:id="@+id/tvTimer"
-        android:layout_width="179dp"
+        android:layout_width="110dp"
         android:layout_height="25dp"
-        android:gravity="center"
+        android:background="@color/textBackground"
         android:fontFamily="casual"
+        android:gravity="center"
         android:text="Left 00:00"
-        android:textColor="@color/myDark_blue"
+        android:textColor="@color/textColors"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/penaltyBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
 
     <ImageButton
         android:id="@+id/truthBtn"

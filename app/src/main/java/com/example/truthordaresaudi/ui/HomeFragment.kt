@@ -42,10 +42,8 @@ class HomeFragment : Fragment() {
     private lateinit var saveAPI: TextView
     private lateinit var loginText: TextView
     private lateinit var value: EditText
-    val uId = FirebaseAuth.getInstance().currentUser?.uid
-    val fb = FirebaseAuth.getInstance()
-
-
+    private val uId = FirebaseAuth.getInstance().currentUser?.uid
+    private val fb = FirebaseAuth.getInstance()
     private lateinit var myVM: MyViewModel
     private val appUrl = "https://github.com/"
 
@@ -89,6 +87,32 @@ class HomeFragment : Fragment() {
             }
             myVM.isFirstTime = false
         })
+
+        /*myVM.readLanguage.observe(viewLifecycleOwner){
+        if(myVM.currentLanguage == "ar"){
+            it = "ar"
+        }
+
+        }*/
+
+
+
+       /* myVM.readLanguage.observe(viewLifecycleOwner, {
+            when (it) {
+                "ar" -> {
+                    myVM.currentLanguage = "ar"
+                    Log.e("HomeFragment", "it = ar")
+                }
+                "en" -> {
+                    myVM.currentLanguage = "en"
+                    Log.e("HomeFragment", "it = en")
+                }
+                else -> {
+                    myVM.currentLanguage = "en"
+                }
+            }
+        })*/
+
 
 
 
@@ -182,7 +206,7 @@ class HomeFragment : Fragment() {
     private fun shareApp() {
         val intent = Intent(Intent.ACTION_SEND)
         intent.type = "text/plain"
-        intent.putExtra(Intent.EXTRA_TEXT, "https://github.com/")
+        intent.putExtra(Intent.EXTRA_TEXT, appUrl)
         startActivity(intent)
     }
 
@@ -190,7 +214,11 @@ class HomeFragment : Fragment() {
         val suggestions = UserSuggestions()
         suggestions.suggestion = value.text.toString()
         myVM.userRequests(suggestions, view.context, view)
-        Toast.makeText(context, "Thank you for being a part of this game \uD83E\uDD73", Toast.LENGTH_LONG).show()
+        Toast.makeText(
+            context,
+            "Thank you for being a part of this game \uD83E\uDD73",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
 }

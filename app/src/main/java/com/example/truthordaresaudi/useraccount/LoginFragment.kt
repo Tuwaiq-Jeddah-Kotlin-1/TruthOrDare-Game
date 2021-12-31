@@ -84,7 +84,7 @@ class LoginFragment : Fragment() {
                             }
 
                  }*/
-            }else{
+            } else {
                 Toast.makeText(context, "No internet connection", Toast.LENGTH_LONG).show()
             }
             /*     if(myVM.checkInternetConnection(view.context)) {
@@ -104,15 +104,10 @@ class LoginFragment : Fragment() {
                 if (operation.isSuccessful) {
                     myVM.saveRememberMe(isRemembered)
                     myVM.getUserInfo()
-                    Toast.makeText(context, "Welcome again \uD83C\uDF89 !", Toast.LENGTH_LONG)
-                        .show()
+                    Toast.makeText(context, "Welcome again \uD83C\uDF89 !", Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 } else {
-                    Toast.makeText(
-                        context,
-                        operation.exception!!.message.toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    Toast.makeText(context, operation.exception!!.message.toString(), Toast.LENGTH_LONG).show()
                 }
             }
 
