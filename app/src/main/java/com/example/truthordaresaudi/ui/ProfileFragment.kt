@@ -64,26 +64,21 @@ class ProfileFragment : Fragment() {
         saveName = view.findViewById(R.id.saveName)
         deleteAccount = view.findViewById(R.id.deleteAccount)
 
-
-
         saveName.visibility = View.GONE
-
         nameProfile.isEnabled = false
+
 
         if (userId != null) {
             nameProfile.setText(myVM.userInfo.fullName)
             emailProfile.text = myVM.userInfo.email
         }
 
-
         val toggle: Switch = view.findViewById(R.id.switchTheme)
 
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-//                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_YES)
                 myVM.saveTheme(true)
             } else {
-//                AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
                 myVM.saveTheme(false)
             }
         }
@@ -97,20 +92,20 @@ class ProfileFragment : Fragment() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 Log.e("ProfileFragmentTheme","it = false")
                 toggle.isChecked = false
-
             }
         })
 
-       /* myVM.readLanguage.observe(viewLifecycleOwner,{
+        myVM.readLanguage.observe(viewLifecycleOwner,{
             if (it == "ar"){
                 Log.e("ProfileFragmentTheme","it = arabic")
-                setLocale(requireActivity(), "ar")
+                myVM.setLocale(requireActivity(), "ar")
 
             }else{
                 Log.e("ProfileFragmentTheme","it = english")
-                setLocale(requireActivity(), "en")
+                myVM.setLocale(requireActivity(), "en")
+
             }
-        })*/
+        })
 
         logOut.setOnClickListener {
             myVM.saveRememberMe(false)
@@ -121,12 +116,15 @@ class ProfileFragment : Fragment() {
         arLanguage.setOnClickListener {
             arLanguage.startAnimation(wiggle)
             myVM.saveLanguage("ar")
-            setLocale(requireActivity(), "ar")
+            myVM.setLocale(requireActivity(), "ar")
+            findNavController().navigate(R.id.action_profileFragment_self)
+
         }
         enLanguage.setOnClickListener {
             enLanguage.startAnimation(wiggle)
             myVM.saveLanguage("en")
-            setLocale(requireActivity(), "en")
+            myVM.setLocale(requireActivity(), "en")
+            findNavController().navigate(R.id.action_profileFragment_self)
         }
 
         editName.setOnClickListener {
@@ -148,7 +146,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun setLocale(activity: Activity, languageCode: String) {
+   /* private fun setLocale(activity: Activity, languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val resources = activity.resources
@@ -156,7 +154,7 @@ class ProfileFragment : Fragment() {
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
         findNavController().navigate(R.id.action_profileFragment_self)
-    }
+    }*/
 
     private fun deleteUserAccount(currentUser : FirebaseUser?){
         currentUser!!.delete().addOnCompleteListener { task ->

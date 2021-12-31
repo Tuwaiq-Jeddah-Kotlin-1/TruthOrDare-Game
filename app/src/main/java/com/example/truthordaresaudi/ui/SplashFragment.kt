@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.appcompat.app.ActionBar
 import com.example.truthordaresaudi.R
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateSizeAsState
 import androidx.compose.animation.core.tween
@@ -24,7 +21,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.truthordaresaudi.MyViewModel
 import kotlinx.android.synthetic.main.fragment_splash.*
 import kotlinx.coroutines.delay
 
@@ -39,27 +35,25 @@ class SplashFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
-    override fun onResume() {
-        super.onResume()
-        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
-        supportActionBar?.hide()
-    }
+    /* override fun onResume() {
+         super.onResume()
+         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
+         supportActionBar?.hide()
+     }
 
-    override fun onStop() {
-        super.onStop()
-        val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
-        supportActionBar?.show()
+     override fun onStop() {
+         super.onStop()
+         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
+         supportActionBar?.show()
 
-    }
+     }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         //hide action bar
-       /* val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
+        /*val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
         supportActionBar?.hide()*/
-
-
 
 
 
@@ -75,27 +69,35 @@ class SplashFragment : Fragment() {
 fun ComposeSplashScreen(navController: NavController) {
     var startAnimation by remember { mutableStateOf(false) }
     val sizeState by animateSizeAsState(
-        targetValue = if (startAnimation) Size(100f, 100f) else Size(0f, 0f),
+        targetValue = if (startAnimation) Size(500f, 500f) else Size(50f, 50f),
         animationSpec = tween(durationMillis = 2000)
     )
 
     val rotateState by animateFloatAsState(
-        targetValue = if (startAnimation) 200f else 0f, animationSpec = tween(
-            durationMillis = 5000
+        targetValue = if (startAnimation) 180f else 0f, animationSpec = tween(
+            durationMillis = 1000
         )
     )
 
+   /* val sizeState2 by animateSizeAsState(
+        targetValue = if (startAnimation) Size(2000f, 2000f) else Size(500f, 500f),
+        animationSpec = tween(
+            durationMillis = 6000
+        )
+    )*/
+
     LaunchedEffect(key1 = true) {
         startAnimation = true
-        delay(4000)
+        delay(2000)
         navController.navigate(R.id.action_splashFragment_to_homeFragment)
     }
-    splashCompose(sizeState, rotateState)
+
+    SplashCompose(sizeState, rotateState)/*, sizeState2*/
 }
 
 
 @Composable
-fun splashCompose(sizeState: Size, rotateState: Float) {
+fun SplashCompose(sizeState: Size, rotateState: Float/*, sizeState2: Size*/) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -109,16 +111,23 @@ fun splashCompose(sizeState: Size, rotateState: Float) {
                     sizeState.width.dp,
                     sizeState.height.dp
                 )
-                .offset(x = 50.dp), painter = painterResource(id = R.drawable.mylogo), contentDescription = "logo"
+                , painter = painterResource(id = R.drawable.splash), contentDescription = "logo"
         )
-       /* Image(
-            modifier = Modifier
-                .rotate(rotateState)
-                .size(
-                    sizeState.width.dp,
-                    sizeState.height.dp
-                ), painter = painterResource(id = R.drawable.profye), contentDescription = "logo"
-        )*/
+
+           /* .size(
+                sizeState2.width.dp,
+                sizeState2.height.dp
+            )*/
+
+    //.offset(x = 50.dp)
+        /* Image(
+             modifier = Modifier
+                 .rotate(rotateState)
+                 .size(
+                     sizeState.width.dp,
+                     sizeState.height.dp
+                 ), painter = painterResource(id = R.drawable.profye), contentDescription = "logo"
+         )*/
     }
 }
 

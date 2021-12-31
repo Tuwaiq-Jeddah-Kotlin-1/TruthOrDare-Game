@@ -15,10 +15,10 @@
         android:src="@drawable/profyt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <TextView
         android:id="@+id/letsPlay"
@@ -61,10 +61,10 @@
         android:src="@drawable/shareicyf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.144" />
 
     <ImageView
         android:id="@+id/loginIcon"
@@ -189,7 +189,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:text="@string/suggest_new_truth_dare_or_punishment"
-        android:textColor="@color/myDark_blue"
+        android:textColor="@color/textColors"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

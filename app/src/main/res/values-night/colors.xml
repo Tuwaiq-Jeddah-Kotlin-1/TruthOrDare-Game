@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--MY Palette-->
+    <color name="myOrange">#FFA630</color>
+    <color name="myYellow">#F1C720</color>
+    <color name="myPlayYellow">#f7b70c</color>
+    <color name="myWhite">#EBEBEB</color>
+    <color name="myLight_blue">#00A7E1  </color>
+    <color name="myDark_blue">#282f77  </color>
+    <color name="myDark_blue1">#0B1D6F  </color>
+    <color name="textColors">#CACACA</color>
+    <color name="textBackground">#D2595959</color>
+
+
+</resources>

@@ -1,5 +1,6 @@
 package com.example.truthordaresaudi
 
+import android.app.Activity
 import android.app.Application
 import android.util.Log
 import com.example.truthordaresaudi.data.repo.GameRepo
@@ -8,16 +9,20 @@ import com.example.truthordaresaudi.data.model.Users
 import com.example.truthordaresaudi.data.model.UserSuggestions
 import kotlinx.coroutines.launch
 import android.content.Context
+import android.content.res.Configuration
+import androidx.navigation.fragment.findNavController
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
 import androidx.lifecycle.*
+import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.data.repo.DataStoreRepo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
+import java.util.*
 
 
 class MyViewModel(application: Application): AndroidViewModel(application) {
@@ -25,6 +30,7 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
     private val dataStoreRepo = DataStoreRepo(application)
     var userInfo = Users("", "", "")
     var isFirstTime = true
+    var currentLanguage = ""
 
 
     val readRememberMe = dataStoreRepo.readRememberMe.asLiveData()
@@ -97,6 +103,16 @@ class MyViewModel(application: Application): AndroidViewModel(application) {
             myRepo.updateUser(username)
         }
     }
+
+    fun setLocale(activity: Activity, languageCode: String) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val resources = activity.resources
+        val config: Configuration = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
 
 
 
