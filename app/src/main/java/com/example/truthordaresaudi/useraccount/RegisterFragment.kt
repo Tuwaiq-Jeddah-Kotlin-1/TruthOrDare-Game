@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.R
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.data.model.Users
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -33,7 +33,7 @@ class RegisterFragment : Fragment() {
     private lateinit var registerBtn: ImageButton
     private lateinit var checkBox: CheckBox
     var isRemembered = false
-    private lateinit var myVM : MyViewModel
+    private lateinit var sharedVM : SharedViewModel
 
 
     //DB
@@ -55,7 +55,7 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myVM = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         registerName = view.findViewById(R.id.etFullName)
         registerEmail = view.findViewById(R.id.etEmail)
         registerPassword = view.findViewById(R.id.etPassword)
@@ -68,7 +68,7 @@ class RegisterFragment : Fragment() {
         }
 
         registerBtn.setOnClickListener {
-             if(myVM.checkInternetConnection(view.context)){
+             if(sharedVM.checkInternetConnection(view.context)){
 //                 Toast.makeText(context, "there is internet connection", Toast.LENGTH_LONG).show()
 
 
@@ -131,8 +131,8 @@ class RegisterFragment : Fragment() {
                 registerPassword.text.toString().trim()
             ).addOnCompleteListener { register ->
                 if (register.isSuccessful) {
-                    myVM.saveRememberMe(isRemembered)
-                    myVM.getUserInfo()
+                    sharedVM.saveRememberMe(isRemembered)
+                    sharedVM.getUserInfo()
                     Toast.makeText(context, "Welcome ${registerName.text.toString()} \uD83C\uDF89 !", Toast.LENGTH_LONG).show()
                     saveUserData(registerEmail.text.toString(), registerName.text.toString())
 

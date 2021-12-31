@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
     private lateinit var loginBtn: ImageButton
     private lateinit var registerNow: TextView
     private lateinit var rememberMe: CheckBox
-    private lateinit var myVM: MyViewModel
+    private lateinit var sharedVM: SharedViewModel
     private var isRemembered = false
 
 
@@ -41,7 +41,7 @@ class LoginFragment : Fragment() {
         loginBtn = view.findViewById(R.id.loginBtn)
         registerNow = view.findViewById(R.id.registerNowBtn)
         rememberMe = view.findViewById(R.id.cbRemember)
-        myVM = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
 
         rememberMe.setOnClickListener {
@@ -53,7 +53,7 @@ class LoginFragment : Fragment() {
         }
 
         loginBtn.setOnClickListener {
-            if (myVM.checkInternetConnection(view.context)) {
+            if (sharedVM.checkInternetConnection(view.context)) {
                 when {
                     TextUtils.isEmpty(loginEmail.text.toString().trim { it <= ' ' }) -> {
                         Toast.makeText(context, "Please Enter Email", Toast.LENGTH_LONG).show()
@@ -102,8 +102,8 @@ class LoginFragment : Fragment() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { operation ->
                 if (operation.isSuccessful) {
-                    myVM.saveRememberMe(isRemembered)
-                    myVM.getUserInfo()
+                    sharedVM.saveRememberMe(isRemembered)
+                    sharedVM.getUserInfo()
                     Toast.makeText(context, "Welcome again \uD83C\uDF89 !", Toast.LENGTH_LONG).show()
                     findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                 } else {

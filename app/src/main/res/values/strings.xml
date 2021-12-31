@@ -39,4 +39,6 @@
     <string name="enter_your_suggestion">Enter your suggestion</string>
     <string name="chosen_value">chosen value</string>
     <string name="truth_or_dare">Truth or Dare😉?</string>
+    <string name="finished">Finished!</string>
+    <string name="left">Left 00: </string>
 </resources>
