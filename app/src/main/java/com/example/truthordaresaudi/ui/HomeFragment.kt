@@ -10,10 +10,9 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.data.model.UserSuggestions
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -44,7 +43,7 @@ class HomeFragment : Fragment() {
     private lateinit var value: EditText
     private val uId = FirebaseAuth.getInstance().currentUser?.uid
     private val fb = FirebaseAuth.getInstance()
-    private lateinit var myVM: MyViewModel
+    private lateinit var sharedVM: SharedViewModel
     private val appUrl = "https://github.com/"
 
 
@@ -59,7 +58,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        myVM = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         ibStart = view.findViewById(R.id.startBtn)
         ibBottle = view.findViewById(R.id.bottleBtn)
         ibRules = view.findViewById(R.id.rulesBtn)
@@ -75,17 +74,17 @@ class HomeFragment : Fragment() {
         var action = R.id.action_homeFragment_to_notRegisteredFragment
 
 
-        myVM.readRememberMe.observe(viewLifecycleOwner, {
+        sharedVM.readRememberMe.observe(viewLifecycleOwner, {
             if (it) {
                 Log.e("HomeFragment", "it = true")
-            } else if (myVM.isFirstTime) {
+            } else if (sharedVM.isFirstTime) {
                 Log.e("HomeFragment", "it = false")
                 fb.signOut()
                 ivLogin.visibility = View.VISIBLE
                 loginText.visibility = View.VISIBLE
                 action = R.id.action_homeFragment_to_notRegisteredFragment
             }
-            myVM.isFirstTime = false
+            sharedVM.isFirstTime = false
         })
 
         /*myVM.readLanguage.observe(viewLifecycleOwner){
@@ -123,7 +122,7 @@ class HomeFragment : Fragment() {
             action = R.id.action_homeFragment_to_profileFragment
             ivLogin.visibility = View.INVISIBLE
             loginText.visibility = View.INVISIBLE
-            myVM.getUserInfo()
+            sharedVM.getUserInfo()
         }
 
 
@@ -213,7 +212,7 @@ class HomeFragment : Fragment() {
     private fun saveToAPI(view: View) {
         val suggestions = UserSuggestions()
         suggestions.suggestion = value.text.toString()
-        myVM.userRequests(suggestions, view.context, view)
+        sharedVM.userRequests(suggestions, view.context, view)
         Toast.makeText(
             context,
             "Thank you for being a part of this game \uD83E\uDD73",

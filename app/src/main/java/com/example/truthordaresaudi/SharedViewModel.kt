@@ -25,7 +25,7 @@ import kotlinx.coroutines.GlobalScope
 import java.util.*
 
 
-class MyViewModel(application: Application): AndroidViewModel(application) {
+class SharedViewModel(application: Application): AndroidViewModel(application) {
     private val myRepo = GameRepo()
     private val dataStoreRepo = DataStoreRepo(application)
     var userInfo = Users("", "", "")

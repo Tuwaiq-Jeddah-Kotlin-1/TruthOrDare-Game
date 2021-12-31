@@ -6,13 +6,12 @@ import android.util.Log
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 
 class MyMainActivity : AppCompatActivity() {
 
-    private lateinit var myVM: MyViewModel
+    private lateinit var sharedVM: SharedViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,8 +22,8 @@ class MyMainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_my_main)
 
-        myVM = ViewModelProvider(this).get(MyViewModel::class.java)
-        myVM.readTheme.observe(this,{
+        sharedVM = ViewModelProvider(this).get(SharedViewModel::class.java)
+        sharedVM.readTheme.observe(this,{
             if (it){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 Log.e("SplashFragmentTheme","it = true")
@@ -34,16 +33,15 @@ class MyMainActivity : AppCompatActivity() {
             }
         })
 
-         myVM.readLanguage.observe(this,{
+         sharedVM.readLanguage.observe(this,{
           if (it == "ar"){
               Log.e("ProfileFragmentTheme","it = arabic")
-              myVM.setLocale(this, "ar")
+              sharedVM.setLocale(this, "ar")
 
           }else{
               Log.e("ProfileFragmentTheme","it = english")
-              myVM.setLocale(this, "en")
+              sharedVM.setLocale(this, "en")
           }
-//          findNavController(ProfileFragment).navigate(R.id.action_profileFragment_self)
       })
 
     }

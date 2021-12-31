@@ -17,7 +17,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.airbnb.lottie.LottieAnimationView
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.data.model.GameData
 import java.util.concurrent.TimeUnit
@@ -26,7 +26,7 @@ import kotlin.random.Random
 
 class PlayFragment : Fragment() {  //, View.OnClickListener
 
-    private lateinit var myVM: MyViewModel
+    private lateinit var sharedVM: SharedViewModel
     lateinit var ibTruth: ImageButton
     lateinit var ibDare: ImageButton
     lateinit var ibPenalty: ImageButton
@@ -42,10 +42,10 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     private lateinit var scaleUp: Animation
     private lateinit var scaleDown: Animation
     var isCounting: Boolean = false
-    private var selectedLanguage = "en"  //Locale.getDefault().displayLanguage or from data store
     private val random = Random(0)
     private var lastDir = 0
     private var spinning = false
+    private var currentLanguage = ""
 
 
     override fun onCreateView(
@@ -58,7 +58,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        myVM = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         ibTruth = view.findViewById(R.id.truthBtn)
         ibDare = view.findViewById(R.id.dareBtn)
         ibPenalty = view.findViewById(R.id.penaltyBtn)
@@ -77,8 +77,16 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
         scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
 
-        Log.d("Check data", "waiting..")
+        Log.e("PlayFragment", "Check data waiting..")
         retrieveGameData(view)
+
+        sharedVM.readLanguage.observe(viewLifecycleOwner,{
+            currentLanguage = if (it == "ar"){
+                "ar"
+            }else{
+                "en"
+            }
+        })
 
 
     }
@@ -87,13 +95,14 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     private fun retrieveGameData(view: View) {
         val truthTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(millis: Long) {
-                tvTimer.text = "Left 00: " + millis / 1000
+                tvTimer.text = resources.getString(R.string.left) + millis / 1000
             }
 
             override fun onFinish() {
+                Log.e("OnFinish", "before toast truth timer")
                 Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
                 Log.e("OnFinish", "From truth timer")
-                tvTimer.text = "Finished!"
+                tvTimer.text = resources.getString(R.string.finished)
                 timerAnim.visibility = View.INVISIBLE
             }
         }
@@ -111,20 +120,20 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     ), TimeUnit.MILLISECONDS.toSeconds(millis) -
                             TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))
                 )
-                tvTimer.text = "Left $hms"
+                tvTimer.text = resources.getString(R.string.left) + hms
 
             }
 
             override fun onFinish() {
                 Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
-                tvTimer.text = "Finished!"
+                tvTimer.text = resources.getString(R.string.finished)
                 timerAnim.visibility = View.INVISIBLE
             }
         }
 
 
-        if (myVM.checkInternetConnection(view.context)) {
-            myVM.dataList(view.context).observe(viewLifecycleOwner, { it ->
+        if (sharedVM.checkInternetConnection(view.context)) {
+            sharedVM.dataList(view.context).observe(viewLifecycleOwner, { it ->
                 val truthList: List<GameData> = it.filter { it.type == "truth" }
                 val dareList: List<GameData> = it.filter { it.type == "dare" }
                 val punishList: List<GameData> = it.filter { it.type == "punishment" }
@@ -137,7 +146,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     if (count == truthList.size - 1) {
                         count = 0
                     }
-                    if (selectedLanguage == "en") {
+                    if (currentLanguage == "en") {
                         playValue.text = truthList[count++].english
                     } else {
                         playValue.text = truthList[count++].arabic
@@ -160,7 +169,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     if (count == dareList.size - 1) {
                         count = 0
                     }
-                    if (selectedLanguage == "en") {
+                    if (currentLanguage == "en") {
                         playValue.text = dareList[count++].english
                     } else {
                         playValue.text = dareList[count++].arabic
@@ -183,7 +192,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     if (count == punishList.size - 1) {
                         count = 0
                     }
-                    if (selectedLanguage == "en") {
+                    if (currentLanguage == "en") {
                         playValue.text = punishList[count++].english
                     } else {
                         playValue.text = punishList[count++].arabic
@@ -197,7 +206,6 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                         dareTimer.start()
                     }
                 }
-
 
                 ibTruth.setOnClickListener {
                     truthClicked()
@@ -258,13 +266,5 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
             bottle.startAnimation(rotate)
         }
     }
-    //  override fun onClick(v: View?) {
-//        when (v?.id) {
-////            R.id.truthBtn, R.id.tvTruth -> findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
-////            R.id.dareBtn, R.id.tvDare -> findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
-////            R.id.penaltyBtn, R.id.tvPenalty -> findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
-//
-//
-//        }
-//    }
+
 }

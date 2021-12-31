@@ -1,7 +1,5 @@
 package com.example.truthordaresaudi.ui
 
-import android.app.Activity
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,10 +12,9 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.truthordaresaudi.MyViewModel
+import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.google.firebase.auth.FirebaseAuth
-import java.util.*
 import android.widget.Toast
 
 import com.google.firebase.auth.FirebaseUser
@@ -33,7 +30,7 @@ class ProfileFragment : Fragment() {
     private lateinit var enLanguage: ImageView
     private lateinit var logOut: ImageView
     private lateinit var editName: ImageView
-    private lateinit var myVM : MyViewModel
+    private lateinit var sharedVM : SharedViewModel
     private lateinit var saveName : ImageView
     private lateinit var deleteAccount : TextView
 
@@ -53,7 +50,7 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        myVM = ViewModelProvider(requireActivity()).get(MyViewModel::class.java)
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         val wiggle: Animation = AnimationUtils.loadAnimation(context, R.anim.wiggle)
         nameProfile = view.findViewById(R.id.tvFullName)
         emailProfile = view.findViewById(R.id.tvEmail)
@@ -69,21 +66,21 @@ class ProfileFragment : Fragment() {
 
 
         if (userId != null) {
-            nameProfile.setText(myVM.userInfo.fullName)
-            emailProfile.text = myVM.userInfo.email
+            nameProfile.setText(sharedVM.userInfo.fullName)
+            emailProfile.text = sharedVM.userInfo.email
         }
 
         val toggle: Switch = view.findViewById(R.id.switchTheme)
 
         toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                myVM.saveTheme(true)
+                sharedVM.saveTheme(true)
             } else {
-                myVM.saveTheme(false)
+                sharedVM.saveTheme(false)
             }
         }
 
-        myVM.readTheme.observe(viewLifecycleOwner,{
+        sharedVM.readTheme.observe(viewLifecycleOwner,{
             if (it){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 Log.e("ProfileFragmentTheme","it = true")
@@ -95,35 +92,35 @@ class ProfileFragment : Fragment() {
             }
         })
 
-        myVM.readLanguage.observe(viewLifecycleOwner,{
+        sharedVM.readLanguage.observe(viewLifecycleOwner,{
             if (it == "ar"){
                 Log.e("ProfileFragmentTheme","it = arabic")
-                myVM.setLocale(requireActivity(), "ar")
+                sharedVM.setLocale(requireActivity(), "ar")
 
             }else{
                 Log.e("ProfileFragmentTheme","it = english")
-                myVM.setLocale(requireActivity(), "en")
+                sharedVM.setLocale(requireActivity(), "en")
 
             }
         })
 
         logOut.setOnClickListener {
-            myVM.saveRememberMe(false)
+            sharedVM.saveRememberMe(false)
             userAuth.signOut()
             findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
         }
 
         arLanguage.setOnClickListener {
             arLanguage.startAnimation(wiggle)
-            myVM.saveLanguage("ar")
-            myVM.setLocale(requireActivity(), "ar")
+            sharedVM.saveLanguage("ar")
+            sharedVM.setLocale(requireActivity(), "ar")
             findNavController().navigate(R.id.action_profileFragment_self)
 
         }
         enLanguage.setOnClickListener {
             enLanguage.startAnimation(wiggle)
-            myVM.saveLanguage("en")
-            myVM.setLocale(requireActivity(), "en")
+            sharedVM.saveLanguage("en")
+            sharedVM.setLocale(requireActivity(), "en")
             findNavController().navigate(R.id.action_profileFragment_self)
         }
 
@@ -133,7 +130,7 @@ class ProfileFragment : Fragment() {
             editName.visibility = View.GONE
 
             saveName.setOnClickListener {
-                myVM.updateUser(nameProfile.text.toString())
+                sharedVM.updateUser(nameProfile.text.toString())
                 nameProfile.isEnabled = false
                 saveName.visibility = View.GONE
                 editName.visibility = View.VISIBLE
@@ -141,7 +138,7 @@ class ProfileFragment : Fragment() {
         }
 
         deleteAccount.setOnClickListener {
-            myVM.checkInternetConnection(view.context)
+            sharedVM.checkInternetConnection(view.context)
             deleteUserAccount(currentUser)
         }
     }
