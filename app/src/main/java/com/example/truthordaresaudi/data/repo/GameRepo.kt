@@ -1,5 +1,8 @@
 package com.example.truthordaresaudi.data.repo
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.util.Log
 import com.example.truthordaresaudi.data.model.GameData
 import com.example.truthordaresaudi.data.model.UserSuggestions
@@ -39,5 +42,15 @@ class GameRepo {
 
         }
     }
+/*
+    fun checkInternetConnection(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val network = connectivityManager.activeNetwork ?: return false
+        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
+        return when {
+            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
+            else -> false
+        }
+    }*/
 
 }

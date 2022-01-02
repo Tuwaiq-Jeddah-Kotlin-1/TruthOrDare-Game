@@ -30,7 +30,6 @@ class SharedViewModel(application: Application): AndroidViewModel(application) {
     private val dataStoreRepo = DataStoreRepo(application)
     var userInfo = Users("", "", "")
     var isFirstTime = true
-    var currentLanguage = ""
 
 
     val readRememberMe = dataStoreRepo.readRememberMe.asLiveData()
@@ -112,10 +111,4 @@ class SharedViewModel(application: Application): AndroidViewModel(application) {
         config.setLocale(locale)
         resources.updateConfiguration(config, resources.displayMetrics)
     }
-
-
-
-
-
-
 }

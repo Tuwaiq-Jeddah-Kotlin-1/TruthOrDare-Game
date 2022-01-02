@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Email"
+        android:hint="@string/email"
         app:endIconMode="clear_text"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:endIconMode="password_toggle"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,18 +71,6 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-<!--    <Button-->
-<!--        android:id="@+id/loginBtn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Login"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
     <ImageButton
         android:id="@+id/loginBtn"
         android:layout_width="130dp"
@@ -95,9 +83,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/cbRemember" />
 
+
     <TextView
         android:id="@+id/tvLogin"
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:fontFamily="casual"

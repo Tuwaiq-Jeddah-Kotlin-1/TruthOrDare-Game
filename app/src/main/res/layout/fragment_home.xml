@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.052" />
 
     <TextView
-        android:id="@+id/letsPlay"
+        android:id="@+id/letsPlayEn"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:elevation="5dp"
@@ -37,6 +37,24 @@
         app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
         app:layout_constraintVertical_bias="0.561" />
+
+    <TextView
+        android:id="@+id/letsPlayAr"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:elevation="5dp"
+        android:fontFamily="@font/amita"
+        android:gravity="center"
+        android:text="@string/let"
+        android:textColor="@color/myPlayYellow"
+        android:textSize="25sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="@+id/lottieAnimationView"
+        app:layout_constraintEnd_toEndOf="@+id/lottieAnimationView"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
+        app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
+        app:layout_constraintVertical_bias="0.606" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
@@ -85,9 +103,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Login"
+        android:text="@string/login"
         android:textColor="@color/myDark_blue"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.96"
