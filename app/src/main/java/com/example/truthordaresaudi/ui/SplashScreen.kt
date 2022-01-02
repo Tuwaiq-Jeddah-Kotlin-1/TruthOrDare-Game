@@ -12,7 +12,6 @@ class SplashScreen : AppCompatActivity() {
         NotificationRepo().myNotification(this)
         setContentView(R.layout.splash_screen)
 /*
-
         supportActionBar?.hide()
         Handler(Looper.getMainLooper()).postDelayed({
             val i = Intent(this, MyMainActivity::class.java)

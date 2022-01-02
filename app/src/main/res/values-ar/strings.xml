@@ -20,7 +20,7 @@
     <string name="bottle">العب بالقارورة</string>
     <string name="rules_button">ازرار القوانين</string>
     <string name="game_rules">قوانين اللعبة</string>
-    <string name="login">تسجيل الدخول</string>
+    <string name="login"><u>تسجيل الدخول</u></string>
     <string name="don_have_an_account">ما عندك حساب؟</string>
     <string name="register_now">سوي حساب جديد</string>
     <string name="remember_me">تذكرني</string>
@@ -44,6 +44,9 @@
     <string name="left">باقي : </string>
     <string name="let">يلا نلعب!</string>
     <string name="password">الرقم السري</string>
+    <string name="register"><u>تسجيل</u></string>
+    <string name="loginbtn">تسجيل الدخول</string>
+
 
 
 </resources>

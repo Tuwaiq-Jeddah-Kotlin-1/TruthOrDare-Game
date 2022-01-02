@@ -8,19 +8,63 @@
     android:background="@drawable/bckg"
     tools:context=".useraccount.LoginFragment">
 
+
+    <View
+        android:layout_width="206dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:layout_width="205dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/tvLogin1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="50dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="casual"
+        android:text="@string/login"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/tvRegisterLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="50dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="casual"
+        android:text="@string/register"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etSignInEmailLayout"
@@ -91,7 +135,7 @@
         android:gravity="center"
         android:fontFamily="casual"
         android:textStyle="bold"
-        android:text="@string/login"
+        android:text="@string/loginbtn"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/loginBtn"
@@ -105,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/remember_me"
-        android:textColor="@color/myLight_blue"
+        android:textColor="#2196F3"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -114,31 +158,6 @@
         app:layout_constraintTop_toBottomOf="@+id/etSignInPasswordLayout"
         app:layout_constraintVertical_bias="0.306" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/don_have_an_account"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbRemember"
-        app:layout_constraintVertical_bias="0.448" />
 
-    <TextView
-        android:id="@+id/registerNowBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/register_now"
-        android:textColor="@color/myLight_blue"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/cbRemember"
-        app:layout_constraintVertical_bias="0.448" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
