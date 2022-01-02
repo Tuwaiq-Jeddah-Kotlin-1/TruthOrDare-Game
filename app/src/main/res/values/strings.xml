@@ -40,5 +40,8 @@
     <string name="chosen_value">chosen value</string>
     <string name="truth_or_dare">Truth or Dare😉?</string>
     <string name="finished">Finished!</string>
-    <string name="left">Left 00: </string>
+    <string name="left">Left : </string>
+    <string name="let"></string>
+    <string name="password">Password</string>
+
 </resources>

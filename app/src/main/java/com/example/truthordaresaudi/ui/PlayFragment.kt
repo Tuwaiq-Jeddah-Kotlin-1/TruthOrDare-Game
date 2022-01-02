@@ -46,6 +46,8 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     private var lastDir = 0
     private var spinning = false
     private var currentLanguage = ""
+    private lateinit var dareTimer :CountDownTimer
+    private lateinit var truthTimer :CountDownTimer
 
 
     override fun onCreateView(
@@ -80,10 +82,10 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         Log.e("PlayFragment", "Check data waiting..")
         retrieveGameData(view)
 
-        sharedVM.readLanguage.observe(viewLifecycleOwner,{
-            currentLanguage = if (it == "ar"){
+        sharedVM.readLanguage.observe(viewLifecycleOwner, {
+            currentLanguage = if (it == "ar") {
                 "ar"
-            }else{
+            } else {
                 "en"
             }
         })
@@ -93,9 +95,9 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
 
 
     private fun retrieveGameData(view: View) {
-        val truthTimer = object : CountDownTimer(30000, 1000) {
+         truthTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(millis: Long) {
-                tvTimer.text = resources.getString(R.string.left) + millis / 1000
+                tvTimer.text = "Left " + millis / 1000
             }
 
             override fun onFinish() {
@@ -110,17 +112,14 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         Log.e("OnFinish", "After truth timer")
 
 
-        val dareTimer = object : CountDownTimer(150000, 1000) {
+        dareTimer = object : CountDownTimer(150000, 1000) {
             override fun onTick(millis: Long) {
-                val hms = String.format(
-                    "%02d:%02d:%02d",
-                    TimeUnit.MILLISECONDS.toHours(millis),
-                    TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(
-                        TimeUnit.MILLISECONDS.toHours(millis)
-                    ), TimeUnit.MILLISECONDS.toSeconds(millis) -
-                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))
-                )
-                tvTimer.text = resources.getString(R.string.left) + hms
+                val minutes = (millis / 1000) / 60
+                val seconds = (millis / 1000) % 60
+                val time = String.format("%02d:%02d", minutes, seconds);
+
+//                tvTimer.text = "Left " + time
+                tvTimer.text = resources.getString(R.string.left) + time
 
             }
 
@@ -265,6 +264,13 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
             lastDir = newDir
             bottle.startAnimation(rotate)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        truthTimer.cancel()
+        dareTimer.cancel()
+
     }
 
 }

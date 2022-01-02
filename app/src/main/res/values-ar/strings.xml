@@ -22,7 +22,7 @@
     <string name="game_rules">قوانين اللعبة</string>
     <string name="login">تسجيل الدخول</string>
     <string name="don_have_an_account">ما عندك حساب؟</string>
-    <string name="register_now">سوي حساب جديد\\</string>
+    <string name="register_now">سوي حساب جديد</string>
     <string name="remember_me">تذكرني</string>
     <string name="suggest_new_truth_dare_or_punishment"><u>اقترح سؤال، عقوبة او تحدي جديد</u></string>
     <string name="let_s_n_play">يلا نلعب!</string>
@@ -41,5 +41,9 @@
     <string name="chosen_value">القيمة المختارة</string>
     <string name="truth_or_dare">تحدي ولا حقيقة😉؟</string>
     <string name="finished">خلص الوقت !</string>
-    <string name="left">باقي 00: </string>
+    <string name="left">باقي : </string>
+    <string name="let">يلا نلعب!</string>
+    <string name="password">الرقم السري</string>
+
+
 </resources>

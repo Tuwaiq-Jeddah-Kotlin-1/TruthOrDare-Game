@@ -44,6 +44,8 @@ class HomeFragment : Fragment() {
     private val uId = FirebaseAuth.getInstance().currentUser?.uid
     private val fb = FirebaseAuth.getInstance()
     private lateinit var sharedVM: SharedViewModel
+    private lateinit var letsPlayAr: TextView
+    private lateinit var letsPlayEn: TextView
     private val appUrl = "https://github.com/"
 
 
@@ -70,6 +72,8 @@ class HomeFragment : Fragment() {
         profile = view.findViewById(R.id.profile)
         loginText = view.findViewById(R.id.tv_login)
         suggestion = view.findViewById(R.id.tvSuggestion)
+        letsPlayAr = view.findViewById(R.id.letsPlayAr)
+        letsPlayEn = view.findViewById(R.id.letsPlayEn)
 
         var action = R.id.action_homeFragment_to_notRegisteredFragment
 
@@ -87,30 +91,15 @@ class HomeFragment : Fragment() {
             sharedVM.isFirstTime = false
         })
 
-        /*myVM.readLanguage.observe(viewLifecycleOwner){
-        if(myVM.currentLanguage == "ar"){
-            it = "ar"
-        }
 
-        }*/
-
-
-
-       /* myVM.readLanguage.observe(viewLifecycleOwner, {
-            when (it) {
-                "ar" -> {
-                    myVM.currentLanguage = "ar"
-                    Log.e("HomeFragment", "it = ar")
-                }
-                "en" -> {
-                    myVM.currentLanguage = "en"
-                    Log.e("HomeFragment", "it = en")
-                }
-                else -> {
-                    myVM.currentLanguage = "en"
-                }
+        sharedVM.readLanguage.observe(viewLifecycleOwner,{
+            if (it == "ar"){
+                letsPlayEn.visibility = View.GONE
+            }else{
+                letsPlayAr.visibility = View.GONE
             }
-        })*/
+        })
+
 
 
 
@@ -183,8 +172,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun userSuggestion() {
-        val view: View = layoutInflater.inflate(R.layout.suggestion, null)
 
+        val view: View = layoutInflater.inflate(R.layout.suggestion, null)
         saveAPI = view.findViewById(R.id.tvSaveToAPI)
         saveBtnAPI = view.findViewById(R.id.saveToAPI)
         value = view.findViewById(R.id.suggestion)
@@ -192,7 +181,6 @@ class HomeFragment : Fragment() {
         val builder = BottomSheetDialog(requireView().context!!)
         builder.setTitle("User Suggestion")
         builder.setContentView(view)
-
         builder.show()
         saveBtnAPI.setOnClickListener {
             saveToAPI(view)

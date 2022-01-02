@@ -30,15 +30,14 @@ class ProfileFragment : Fragment() {
     private lateinit var enLanguage: ImageView
     private lateinit var logOut: ImageView
     private lateinit var editName: ImageView
-    private lateinit var sharedVM : SharedViewModel
-    private lateinit var saveName : ImageView
-    private lateinit var deleteAccount : TextView
+    private lateinit var sharedVM: SharedViewModel
+    private lateinit var saveName: ImageView
+    private lateinit var deleteAccount: TextView
 
     private val userAuth = FirebaseAuth.getInstance()
     private val fireStore = FirebaseFirestore.getInstance()
     private val currentUser = userAuth.currentUser
     private val userId = FirebaseAuth.getInstance().currentUser?.uid
-
 
 
     override fun onCreateView(
@@ -80,25 +79,25 @@ class ProfileFragment : Fragment() {
             }
         }
 
-        sharedVM.readTheme.observe(viewLifecycleOwner,{
-            if (it){
+        sharedVM.readTheme.observe(viewLifecycleOwner, {
+            if (it) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                Log.e("ProfileFragmentTheme","it = true")
+                Log.e("ProfileFragmentTheme", "it = true")
                 toggle.isChecked = true
-            }else{
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                Log.e("ProfileFragmentTheme","it = false")
+                Log.e("ProfileFragmentTheme", "it = false")
                 toggle.isChecked = false
             }
         })
 
-        sharedVM.readLanguage.observe(viewLifecycleOwner,{
-            if (it == "ar"){
-                Log.e("ProfileFragmentTheme","it = arabic")
+        sharedVM.readLanguage.observe(viewLifecycleOwner, {
+            if (it == "ar") {
+                Log.e("ProfileFragmentTheme", "it = arabic")
                 sharedVM.setLocale(requireActivity(), "ar")
 
-            }else{
-                Log.e("ProfileFragmentTheme","it = english")
+            } else {
+                Log.e("ProfileFragmentTheme", "it = english")
                 sharedVM.setLocale(requireActivity(), "en")
 
             }
@@ -112,16 +111,17 @@ class ProfileFragment : Fragment() {
 
         arLanguage.setOnClickListener {
             arLanguage.startAnimation(wiggle)
-            sharedVM.saveLanguage("ar")
-            sharedVM.setLocale(requireActivity(), "ar")
+
+            language("ar", toggle.isChecked)
+
             findNavController().navigate(R.id.action_profileFragment_self)
 
         }
         enLanguage.setOnClickListener {
             enLanguage.startAnimation(wiggle)
-            sharedVM.saveLanguage("en")
-            sharedVM.setLocale(requireActivity(), "en")
-            findNavController().navigate(R.id.action_profileFragment_self)
+            language("en", toggle.isChecked)
+
+//            findNavController().navigate(R.id.action_profileFragment_self)
         }
 
         editName.setOnClickListener {
@@ -143,7 +143,7 @@ class ProfileFragment : Fragment() {
         }
     }
 
-   /* private fun setLocale(activity: Activity, languageCode: String) {
+    /* private fun setLocale(activity: Activity, languageCode: String) {
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
         val resources = activity.resources
@@ -153,16 +153,27 @@ class ProfileFragment : Fragment() {
         findNavController().navigate(R.id.action_profileFragment_self)
     }*/
 
-    private fun deleteUserAccount(currentUser : FirebaseUser?){
+    private fun deleteUserAccount(currentUser: FirebaseUser?) {
         currentUser!!.delete().addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(context, "Your Account Deleted Successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Your Account Deleted Successfully", Toast.LENGTH_SHORT)
+                    .show()
                 findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
                 fireStore.collection("Users").document(currentUser.uid).delete()
             }
         }.addOnFailureListener { e ->
             Log.e("addOnFailureListener", "addOnFailureListener", e)
         }
+    }
+
+    fun language(langCode: String, isChecked: Boolean) {
+        sharedVM.saveLanguage(langCode)
+        sharedVM.setLocale(requireActivity(), langCode)
+        if (!isChecked)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        else
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
     }
 
 }
