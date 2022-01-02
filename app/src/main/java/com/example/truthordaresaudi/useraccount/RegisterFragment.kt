@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -32,6 +33,7 @@ class RegisterFragment : Fragment() {
     private lateinit var registerConfirmPassword: TextInputEditText
     private lateinit var registerBtn: ImageButton
     private lateinit var checkBox: CheckBox
+    private lateinit var tvLoginRegister: TextView
     var isRemembered = false
     private lateinit var sharedVM : SharedViewModel
 
@@ -62,6 +64,11 @@ class RegisterFragment : Fragment() {
         registerConfirmPassword = view.findViewById(R.id.etConfirmPassword)
         registerBtn = view.findViewById(R.id.registerBtn)
         checkBox = view.findViewById(R.id.cbRemember)
+        tvLoginRegister = view.findViewById(R.id.tvLoginRegister)
+
+        tvLoginRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_RegisterFragment_to_loginFragment)
+        }
 
         checkBox.setOnClickListener {
             isRemembered = !isRemembered

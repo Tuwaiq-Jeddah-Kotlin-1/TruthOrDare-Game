@@ -20,9 +20,9 @@ class LoginFragment : Fragment() {
     private lateinit var loginEmail: TextInputEditText
     private lateinit var loginPassword: TextInputEditText
     private lateinit var loginBtn: ImageButton
-    private lateinit var registerNow: TextView
     private lateinit var rememberMe: CheckBox
     private lateinit var sharedVM: SharedViewModel
+    private lateinit var tvRegisterLogin: TextView
     private var isRemembered = false
 
 
@@ -36,20 +36,20 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
         loginEmail = view.findViewById(R.id.etSignInEmail)
         loginPassword = view.findViewById(R.id.etSignInPassword)
         loginBtn = view.findViewById(R.id.loginBtn)
-        registerNow = view.findViewById(R.id.registerNowBtn)
         rememberMe = view.findViewById(R.id.cbRemember)
-        sharedVM = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        tvRegisterLogin = view.findViewById(R.id.tvRegisterLogin)
+
+        tvRegisterLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
 
         rememberMe.setOnClickListener {
             isRemembered = !isRemembered
-        }
-
-        registerNow.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
         loginBtn.setOnClickListener {
