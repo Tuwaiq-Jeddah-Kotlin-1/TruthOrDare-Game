@@ -1,8 +1,8 @@
 # TruthOrDare-Game
-This is my final graduation project from Tuwaiq Academy that supports Tuwaiq 1000 program.
-\nDemo Account: 
-\n-Email: demo@m.com
-\n-Password: 123456
+This is my final graduation project from Tuwaiq Academy that supports Tuwaiq 1000 program.<br/>
+Demo Account: <br/>
+-Email: demo@m.com <br/>
+-Password: 123456 <br/>
 
 
 Description :scroll:
