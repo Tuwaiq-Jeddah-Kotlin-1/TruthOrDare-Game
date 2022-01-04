@@ -10,12 +10,10 @@ import com.example.truthordaresaudi.data.model.UserSuggestions
 import kotlinx.coroutines.launch
 import android.content.Context
 import android.content.res.Configuration
-import androidx.navigation.fragment.findNavController
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.view.View
 import androidx.lifecycle.*
-import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.data.repo.DataStoreRepo
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore

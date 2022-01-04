@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.R
@@ -14,6 +15,7 @@ class NotRegisteredFragment : Fragment() {
 
     private lateinit var registerTv: TextView
     private lateinit var registerBtn: ImageButton
+    private lateinit var backBtn: ImageView
 
 
     override fun onCreateView(
@@ -28,6 +30,7 @@ class NotRegisteredFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         registerBtn = view.findViewById(R.id.registerBtn1)
         registerTv = view.findViewById(R.id.tvRegister1)
+        backBtn = view.findViewById(R.id.backNotRegistered)
 
         registerTv.setOnClickListener {
             findNavController().navigate(R.id.action_notRegisteredFragment_to_RegisterFragment)
@@ -36,6 +39,9 @@ class NotRegisteredFragment : Fragment() {
         registerBtn.setOnClickListener {
             findNavController().navigate(R.id.action_notRegisteredFragment_to_RegisterFragment)
 
+        }
+        backBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_notRegisteredFragment_to_homeFragment)
         }
     }
 

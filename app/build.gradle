@@ -4,7 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
 // id("kotlin-parcelize")
-    id  "androidx.navigation.safeargs.kotlin"
+    id "androidx.navigation.safeargs.kotlin"
     id 'kotlin-android-extensions'
 
 }
@@ -63,6 +63,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation 'com.firebaseui:firebase-ui-auth:8.0.0'
     implementation 'com.firebaseui:firebase-ui-database:8.0.0'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
 
     //FireStore
     implementation 'com.google.firebase:firebase-firestore:24.0.0'
@@ -95,30 +97,29 @@ dependencies {
 
     //Data Store preference
     implementation "androidx.datastore:datastore-preferences:1.0.0"
+
     //Flow lifecycle
-    implementation"androidx.lifecycle:lifecycle-extensions:2.2.0"
-    implementation"androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
-    implementation"androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
 
+    implementation("androidx.compose.ui:ui:1.0.5")
+    // Tooling support (Previews, etc.)
+    implementation("androidx.compose.ui:ui-tooling:1.0.5")
+    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
+    implementation("androidx.compose.foundation:foundation:1.0.5")
+    // Material Design
+    implementation("androidx.compose.material:material:1.0.5")
+    // Material design icons
+    implementation("androidx.compose.material:material-icons-core:1.0.5")
+    implementation("androidx.compose.material:material-icons-extended:1.0.5")
+    // Integration with observables
+    implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
+    implementation("androidx.compose.runtime:runtime-rxjava2:1.0.5")
 
-        implementation("androidx.compose.ui:ui:1.0.5")
-        // Tooling support (Previews, etc.)
-        implementation("androidx.compose.ui:ui-tooling:1.0.5")
-        // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-        implementation("androidx.compose.foundation:foundation:1.0.5")
-        // Material Design
-        implementation("androidx.compose.material:material:1.0.5")
-        // Material design icons
-        implementation("androidx.compose.material:material-icons-core:1.0.5")
-        implementation("androidx.compose.material:material-icons-extended:1.0.5")
-        // Integration with observables
-        implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
-        implementation("androidx.compose.runtime:runtime-rxjava2:1.0.5")
-
-        // UI Tests
-        androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
-
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.0.5")
 
 
 }

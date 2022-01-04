@@ -13,10 +13,10 @@
     <color name="myYellow">#F1C720</color>
     <color name="myPlayYellow">#f7b70c</color>
     <color name="myWhite">#EBEBEB</color>
-    <color name="myLight_blue">#00A7E1  </color>
-    <color name="myDark_blue">#282f77  </color>
-    <color name="myDark_blue1">#0B1D6F  </color>
-    <color name="grayBkgLight">#B9F4F4F4  </color>
+    <color name="myLight_blue">#00A7E1</color>
+    <color name="myDark_blue">#282f77</color>
+    <color name="myDark_blue1">#0B1D6F</color>
+    <color name="grayBkgLight">#B9F4F4F4</color>
     <color name="grayBkgDark">#B97C7C7C</color>
     <color name="textColors">#282f77</color>
     <color name="textBackground">#D2F8F8F8</color>

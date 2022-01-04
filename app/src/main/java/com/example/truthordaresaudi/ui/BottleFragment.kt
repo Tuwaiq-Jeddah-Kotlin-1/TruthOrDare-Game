@@ -10,6 +10,7 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.R
 import kotlin.random.Random
 
@@ -17,6 +18,7 @@ import kotlin.random.Random
 class BottleFragment : Fragment() {
 
     lateinit var ivBottle: ImageView
+    lateinit var ivBack: ImageView
     lateinit var ibSpin: ImageButton
     lateinit var tvSpin: TextView
     private val random = Random(0)
@@ -37,6 +39,7 @@ class BottleFragment : Fragment() {
         ivBottle = view.findViewById(R.id.ivBottle)
         ibSpin = view.findViewById(R.id.spinBtn)
         tvSpin = view.findViewById(R.id.tvSpin)
+        ivBack = view.findViewById(R.id.backBottle)
 
         ibSpin.setOnClickListener {
             spinBottle()
@@ -44,6 +47,10 @@ class BottleFragment : Fragment() {
         tvSpin.setOnClickListener {
             spinBottle()
         }
+        ivBack.setOnClickListener {
+            findNavController().navigate(R.id.action_bottleFragment_to_homeFragment)
+        }
+
     }
 
     private fun spinBottle() {
