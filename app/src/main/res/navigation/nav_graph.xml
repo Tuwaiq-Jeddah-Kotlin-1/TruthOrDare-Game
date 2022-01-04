@@ -66,17 +66,28 @@
             app:destination="@id/bottleFragment"
             app:popUpTo="@id/playFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_playFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/bottleFragment"
         android:name="com.example.truthordaresaudi.ui.BottleFragment"
         android:label="fragment_bottle"
-        tools:layout="@layout/fragment_bottle" />
+        tools:layout="@layout/fragment_bottle" >
+        <action
+            android:id="@+id/action_bottleFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.truthordaresaudi.ui.RulesFragment"
         android:label="fragment_rules"
-        tools:layout="@layout/fragment_rules" />
+        tools:layout="@layout/fragment_rules" >
+        <action
+            android:id="@+id/action_rulesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.truthordaresaudi.ui.ProfileFragment"
@@ -86,7 +97,9 @@
             android:id="@+id/action_profileFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:enterAnim="@android:anim/fade_out"
-            app:exitAnim="@android:anim/fade_in" />
+            app:exitAnim="@android:anim/fade_in"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_profileFragment_self"
             app:destination="@id/profileFragment"
@@ -94,6 +107,9 @@
             app:exitAnim="@anim/splash_out"
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/notRegisteredFragment"
@@ -105,6 +121,9 @@
             app:destination="@id/RegisterFragment"
             app:popUpTo="@id/notRegisteredFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_notRegisteredFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

@@ -1,5 +1,6 @@
 package com.example.truthordaresaudi.ui
 
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -20,7 +21,6 @@ import com.airbnb.lottie.LottieAnimationView
 import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.data.model.GameData
-import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
 
@@ -31,6 +31,7 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     lateinit var ibDare: ImageButton
     lateinit var ibPenalty: ImageButton
     lateinit var ibSpin: ImageButton
+    lateinit var backBtn: ImageView
     lateinit var tvTruth: TextView
     lateinit var tvDare: TextView
     lateinit var tvPenalty: TextView
@@ -46,8 +47,10 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     private var lastDir = 0
     private var spinning = false
     private var currentLanguage = ""
-    private lateinit var dareTimer :CountDownTimer
-    private lateinit var truthTimer :CountDownTimer
+    private lateinit var gameTimer: CountDownTimer
+
+    //    private lateinit var truthTimer :CountDownTimer
+    private lateinit var mediaPlayer: MediaPlayer
 
 
     override fun onCreateView(
@@ -72,10 +75,22 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
         tvSpin = view.findViewById(R.id.tvSpin)
         bottle = view.findViewById(R.id.ivBottle)
         tvTimer = view.findViewById(R.id.tvTimer)
-        tvTimer.visibility = View.INVISIBLE
         timerAnim = view.findViewById(R.id.timerAnim)
-        timerAnim.visibility = View.INVISIBLE
+        backBtn = view.findViewById(R.id.backPlay)
 
+        timerAnim.visibility = View.INVISIBLE
+        tvTimer.visibility = View.INVISIBLE
+
+        /* ibDare.visibility = View.GONE
+         tvDare.visibility = View.GONE
+         ibTruth.visibility = View.GONE
+         tvTruth.visibility = View.GONE
+         ibPenalty.visibility = View.GONE
+         tvPenalty.visibility = View.GONE*/
+
+        backBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_playFragment_to_homeFragment)
+        }
         scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
         scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
 
@@ -89,47 +104,66 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                 "en"
             }
         })
+    }
 
 
+    private fun playAudio() {
+        mediaPlayer = MediaPlayer.create(context, R.raw.clocktick_sound)
+        mediaPlayer.start()
+    }
+
+    private fun createTimer(milliseconds: Long) {
+        if (isCounting) {
+            gameTimer.cancel()
+        }
+        timerAnim.visibility = View.VISIBLE
+        tvTimer.visibility = View.VISIBLE
+        gameTimer = object : CountDownTimer(milliseconds, 1000) {
+            override fun onTick(millis: Long) {
+                val minutes = (millis / 1000) / 60
+                val seconds = (millis / 1000) % 60
+                val time = String.format("%02d:%02d", minutes, seconds)
+                if(time == "00:10"){
+                    playAudio()
+                }
+//                (resources.getString(R.string.left) + " $time").also { tvTimer.text = it }
+                tvTimer.text = resources.getString(R.string.left) + time
+
+
+                /*  if (milliseconds == dare) {
+                        tvTimer.text = resources.getString(R.string.left) + time
+                    } else {
+                        tvTimer.text = "Left a " + millis / 1000
+                    }*/
+
+            }
+
+            override fun onFinish() {
+                mediaPlayer.stop()
+                Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
+                tvTimer.text = resources.getString(R.string.finished)
+                timerAnim.visibility = View.INVISIBLE
+            }
+        }
+        gameTimer.start()
+        isCounting = true
     }
 
 
     private fun retrieveGameData(view: View) {
-         truthTimer = object : CountDownTimer(30000, 1000) {
-            override fun onTick(millis: Long) {
-                tvTimer.text = "Left " + millis / 1000
-            }
+        /*truthTimer = object : CountDownTimer(30000, 1000) {
+           override fun onTick(millis: Long) {
+               tvTimer.text = "Left " + millis / 1000
+           }
 
-            override fun onFinish() {
-                Log.e("OnFinish", "before toast truth timer")
-                Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
-                Log.e("OnFinish", "From truth timer")
-                tvTimer.text = resources.getString(R.string.finished)
-                timerAnim.visibility = View.INVISIBLE
-            }
-        }
-
-        Log.e("OnFinish", "After truth timer")
-
-
-        dareTimer = object : CountDownTimer(150000, 1000) {
-            override fun onTick(millis: Long) {
-                val minutes = (millis / 1000) / 60
-                val seconds = (millis / 1000) % 60
-                val time = String.format("%02d:%02d", minutes, seconds);
-
-//                tvTimer.text = "Left " + time
-                tvTimer.text = resources.getString(R.string.left) + time
-
-            }
-
-            override fun onFinish() {
-                Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
-                tvTimer.text = resources.getString(R.string.finished)
-                timerAnim.visibility = View.INVISIBLE
-            }
-        }
-
+           override fun onFinish() {
+               Log.e("OnFinish", "before toast truth timer")
+               Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
+               Log.e("OnFinish", "From truth timer")
+               tvTimer.text = resources.getString(R.string.finished)
+               timerAnim.visibility = View.INVISIBLE
+           }
+       }*/
 
         if (sharedVM.checkInternetConnection(view.context)) {
             sharedVM.dataList(view.context).observe(viewLifecycleOwner, { it ->
@@ -139,8 +173,10 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                 var count = 0
 
                 fun truthClicked() {
-                    timerAnim.visibility = View.VISIBLE
-                    tvTimer.visibility = View.VISIBLE
+                    createTimer(30000)
+//                    playAudio()
+                    /*timerAnim.visibility = View.VISIBLE
+                    tvTimer.visibility = View.VISIBLE*/
                     ibTruth.startAnimation(scaleUp)
                     if (count == truthList.size - 1) {
                         count = 0
@@ -151,19 +187,21 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                         playValue.text = truthList[count++].arabic
                     }
 
-                    if (!isCounting) {
-                        isCounting = true
-                        truthTimer.start()
-                    } else {
-                        truthTimer.cancel()
-                        truthTimer.start()
-                        dareTimer.cancel()
-                    }
+                    /*  if (!isCounting) {
+                          isCounting = true
+  //                        truthTimer.start()
+                      } else {
+  //                        truthTimer.cancel()
+  //                        truthTimer.start()
+                          gameTimer.cancel()
+                          gameTimer.start()
+                      }*/
                 }
 
                 fun dareClicked() {
-                    timerAnim.visibility = View.VISIBLE
-                    tvTimer.visibility = View.VISIBLE
+                    createTimer(150000)
+                    /* timerAnim.visibility = View.VISIBLE
+                     tvTimer.visibility = View.VISIBLE*/
                     ibDare.startAnimation(scaleUp)
                     if (count == dareList.size - 1) {
                         count = 0
@@ -173,20 +211,22 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     } else {
                         playValue.text = dareList[count++].arabic
                     }
-                    if (!isCounting) {
-                        isCounting = true
-                        dareTimer.start()
-                    } else {
-                        dareTimer.cancel()
-                        truthTimer.cancel()
-                        dareTimer.start()
 
-                    }
+                    /*  if (!isCounting) {
+                          isCounting = true
+                          gameTimer.start()
+                      } else {
+                          gameTimer.cancel()
+  //                        truthTimer.cancel()
+                          gameTimer.start()
+
+                      }*/
                 }
 
                 fun punishClicked() {
-                    timerAnim.visibility = View.VISIBLE
-                    tvTimer.visibility = View.VISIBLE
+                    createTimer(180000)
+                    /*  timerAnim.visibility = View.VISIBLE
+                      tvTimer.visibility = View.VISIBLE*/
                     ibPenalty.startAnimation(scaleUp)
                     if (count == punishList.size - 1) {
                         count = 0
@@ -196,14 +236,14 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     } else {
                         playValue.text = punishList[count++].arabic
                     }
-                    if (!isCounting) {
+                    /*if (!isCounting) {
                         isCounting = true
-                        dareTimer.start()
+                        gameTimer.start()
                     } else {
-                        dareTimer.cancel()
-                        truthTimer.cancel()
-                        dareTimer.start()
-                    }
+                        gameTimer.cancel()
+//                        truthTimer.cancel()
+                        gameTimer.start()
+                    }*/
                 }
 
                 ibTruth.setOnClickListener {
@@ -225,11 +265,9 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
                     punishClicked()
                 }
                 tvSpin.setOnClickListener {
-                    ibSpin.startAnimation(scaleUp)
                     spinBottle()
                 }
                 ibSpin.setOnClickListener {
-                    ibSpin.startAnimation(scaleUp)
                     spinBottle()
                 }
             })
@@ -241,6 +279,13 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
     }
 
     private fun spinBottle() {
+        /*ibDare.visibility = View.VISIBLE
+        tvDare.visibility = View.VISIBLE
+        ibTruth.visibility = View.VISIBLE
+        tvTruth.visibility = View.VISIBLE
+        ibPenalty.visibility = View.VISIBLE
+        tvPenalty.visibility = View.VISIBLE*/
+        ibSpin.startAnimation(scaleUp)
         if (!spinning) {
             val newDir = random.nextInt(2000)
             val pivotX: Float = bottle.width / 2f
@@ -268,9 +313,8 @@ class PlayFragment : Fragment() {  //, View.OnClickListener
 
     override fun onDestroy() {
         super.onDestroy()
-        truthTimer.cancel()
-        dareTimer.cancel()
-
+        if (this::gameTimer.isInitialized) {
+            gameTimer.cancel()
+        }
     }
-
 }

@@ -35,7 +35,7 @@ class HomeFragment : Fragment() {
     private lateinit var icShare: ImageView
     private lateinit var profile: ImageView
     private lateinit var scaleUp: Animation
-    private lateinit var scaleDown: Animation
+//    private lateinit var scaleDown: Animation
     private lateinit var suggestion: TextView
     private lateinit var saveBtnAPI: ImageButton
     private lateinit var saveAPI: TextView
@@ -116,52 +116,52 @@ class HomeFragment : Fragment() {
 
 
         scaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up)
-        scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
+//        scaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down)
 
 
         tvStart.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 ibStart.startAnimation(scaleUp)
                 delay(500)
-                findNavController().navigate(R.id.action_homeFragment_to_playFragment)
+                navigateTo(R.id.action_homeFragment_to_playFragment)
             }
         }
         ibStart.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 ibStart.startAnimation(scaleUp)
                 delay(500)
-                findNavController().navigate(R.id.action_homeFragment_to_playFragment)
+                navigateTo(R.id.action_homeFragment_to_playFragment)
             }
         }
         ibBottle.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_bottleFragment)
+            navigateTo(R.id.action_homeFragment_to_bottleFragment)
         }
         tvBottle.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 ibBottle.startAnimation(scaleUp)
                 delay(500)
-                findNavController().navigate(R.id.action_homeFragment_to_bottleFragment)
+                navigateTo(R.id.action_homeFragment_to_bottleFragment)
             }
         }
         ibRules.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 ibRules.startAnimation(scaleUp)
                 delay(500)
-                findNavController().navigate(R.id.action_homeFragment_to_rulesFragment)
+                navigateTo(R.id.action_homeFragment_to_rulesFragment)
             }
         }
         tvRules.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
                 ibRules.startAnimation(scaleUp)
                 delay(500)
-                findNavController().navigate(R.id.action_homeFragment_to_rulesFragment)
+                navigateTo(R.id.action_homeFragment_to_rulesFragment)
             }
         }
         ivLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_loginFragment)
+            navigateTo(R.id.action_homeFragment_to_loginFragment)
         }
         profile.setOnClickListener {
-            findNavController().navigate(action)
+            navigateTo(action)
         }
         icShare.setOnClickListener {
             shareApp()
@@ -172,7 +172,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun userSuggestion() {
-
         val view: View = layoutInflater.inflate(R.layout.suggestion, null)
         saveAPI = view.findViewById(R.id.tvSaveToAPI)
         saveBtnAPI = view.findViewById(R.id.saveToAPI)
@@ -201,11 +200,11 @@ class HomeFragment : Fragment() {
         val suggestions = UserSuggestions()
         suggestions.suggestion = value.text.toString()
         sharedVM.userRequests(suggestions, view.context, view)
-        Toast.makeText(
-            context,
-            "Thank you for being a part of this game \uD83E\uDD73",
-            Toast.LENGTH_LONG
-        ).show()
+        Toast.makeText(context, "Thank you for being a part of this game \uD83E\uDD73", Toast.LENGTH_LONG).show()
+    }
+
+    private fun navigateTo(id:Int){
+        findNavController().navigate(id)
     }
 
 }

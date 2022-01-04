@@ -23,6 +23,19 @@
 
 
 <!--    android:background="@color/textBackground"-->
+
+    <ImageView
+        android:id="@+id/backPlay"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_backbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037" />
+
     <TextView
         android:id="@+id/tvGameValue"
         android:layout_width="match_parent"
