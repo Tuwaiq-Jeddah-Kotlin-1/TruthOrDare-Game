@@ -99,7 +99,6 @@
         android:id="@+id/tvTimer"
         android:layout_width="110dp"
         android:layout_height="25dp"
-        android:background="@color/textBackground"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="Left 00:00"

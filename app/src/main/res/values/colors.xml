@@ -16,10 +16,20 @@
     <color name="myLight_blue">#00A7E1</color>
     <color name="myDark_blue">#282f77</color>
     <color name="myDark_blue1">#0B1D6F</color>
+    <color name="myGray">#7C7C7C</color>
+    <color name="myDarkGray">#7C7C7C</color>
     <color name="grayBkgLight">#B9F4F4F4</color>
     <color name="grayBkgDark">#B97C7C7C</color>
     <color name="textColors">#282f77</color>
     <color name="textBackground">#D2F8F8F8</color>
+    <color name="editTextBackground">#D2F8F8F8</color>
+    <color name="loginRegColor">#F1C720</color>
+    <color name="blackWhite">#000000</color>
+    <color name="loginReg">#0B1D6F</color>
+
+
+    <color name="mtrl_textinput_default_box_stroke_color">@color/blackWhite</color>
+
 
 
 

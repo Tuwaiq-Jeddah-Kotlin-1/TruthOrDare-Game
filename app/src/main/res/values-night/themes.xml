@@ -6,7 +6,7 @@
         <item name="colorPrimaryVariant">#A8A1A1</item>
         <item name="colorOnPrimary">#C3BEBE</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/myYellow</item>
         <item name="colorSecondaryVariant">@color/grayBkgDark</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->

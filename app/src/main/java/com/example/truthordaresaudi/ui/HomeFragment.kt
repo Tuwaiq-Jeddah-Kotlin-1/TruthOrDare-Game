@@ -17,7 +17,6 @@ import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.data.model.UserSuggestions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.auth.FirebaseAuth
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -111,7 +110,7 @@ class HomeFragment : Fragment() {
             action = R.id.action_homeFragment_to_profileFragment
             ivLogin.visibility = View.INVISIBLE
             loginText.visibility = View.INVISIBLE
-            sharedVM.getUserInfo()
+            sharedVM.loadUserInfo()
         }
 
 

@@ -39,11 +39,29 @@
     <string name="enter_your_suggestion">Enter your suggestion</string>
     <string name="chosen_value">chosen value</string>
     <string name="truth_or_dare">Truth or Dare😉?</string>
-    <string name="finished">Finished!</string>
+    <string name="finished">Finished !</string>
     <string name="left">Left </string>
     <string name="let"></string>
     <string name="password">Password</string>
     <string name="register"><u>Register</u></string>
+    <string name="loginreg">Login</string>
     <string name="login"><u>Login</u></string>
+    <string name="registerLogin">Register</string>
+    <string name="forget_password"><u>Forget password?</u></string>
+    <string name="enter_email">Please Enter Email</string>
+    <string name="enter_password">Please Enter Password</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="welcome_again">Welcome again 🎉 !</string>
+    <string name="login_failed">Login Failed..</string>
+    <string name="register_failed">Register failed!</string>
+    <string name="Welcome">Welcome \uD83C\uDF89 !</string>
+    <string name="enter_name">Please Enter Your Full Name</string>
+    <string name="enter_confirm_password">Please Enter Password Confirmation</string>
+    <string name="passwords_should_match">Password Should Match Password Confirmation</string>
+    <string name="not_registered_msg">You are not registered yet \n register now to view your profile</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="reset">Reset</string>
+    <string name="enter_your_email">Enter your email</string>
+
 
 </resources>

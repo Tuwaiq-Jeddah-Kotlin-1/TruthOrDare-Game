@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
+import com.example.truthordaresaudi.data.repo.NotificationRepo
 
 class MyMainActivity : AppCompatActivity() {
 
@@ -16,6 +17,8 @@ class MyMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        NotificationRepo().myNotification(this)
 
         val supportActionBar: ActionBar? = (this).supportActionBar
         supportActionBar?.hide()
@@ -45,22 +48,4 @@ class MyMainActivity : AppCompatActivity() {
       })
 
     }
-    /*    supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        nav_view.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.nav_profile -> Toast.makeText(applicationContext, "Profile Clicked", Toast.LENGTH_LONG).show()
-            }
-            true
-        }*/
-
-
-
-
-
-   /* override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)){
-            return true
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
 }

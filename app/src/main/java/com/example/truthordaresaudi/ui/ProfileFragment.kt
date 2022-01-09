@@ -1,6 +1,5 @@
 package com.example.truthordaresaudi.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -17,9 +16,7 @@ import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.google.firebase.auth.FirebaseAuth
 import android.widget.Toast
-
 import com.google.firebase.auth.FirebaseUser
-
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -43,9 +40,7 @@ class ProfileFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
@@ -72,8 +67,9 @@ class ProfileFragment : Fragment() {
         }
 
         if (userId != null) {
-            nameProfile.setText(sharedVM.userInfo.fullName)
-            emailProfile.text = sharedVM.userInfo.email
+            val info = sharedVM.userInfo()
+            nameProfile.setText(info.fullName)
+            emailProfile.text = info.email
         }
 
         val toggle: Switch = view.findViewById(R.id.switchTheme)
@@ -106,7 +102,6 @@ class ProfileFragment : Fragment() {
             } else {
                 Log.e("ProfileFragmentTheme", "it = english")
                 sharedVM.setLocale(requireActivity(), "en")
-
             }
         })
 

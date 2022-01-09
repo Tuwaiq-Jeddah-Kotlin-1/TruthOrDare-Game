@@ -5,12 +5,16 @@
     <color name="myOrange">#FFA630</color>
     <color name="myYellow">#F1C720</color>
     <color name="myPlayYellow">#f7b70c</color>
-    <color name="myWhite">#EBEBEB</color>
-    <color name="myLight_blue">#00A7E1  </color>
-    <color name="myDark_blue">#282f77  </color>
-    <color name="myDark_blue1">#0B1D6F  </color>
+    <color name="myWhite">#000000</color>
+    <color name="myLight_blue">#00A7E1</color>
+    <color name="myDark_blue">#282f77</color>
+    <color name="myDark_blue1">#0B1D6F</color>
     <color name="textColors">#CACACA</color>
     <color name="textBackground">#D2595959</color>
-
+    <color name="white">#FC595959</color>
+    <color name="editTextBackground">#8AAEAEAE</color>
+    <color name="loginRegColor">#D2595959</color>
+    <color name="blackWhite">#F6F6F6</color>
+    <color name="loginReg">#F1C720</color>
 
 </resources>

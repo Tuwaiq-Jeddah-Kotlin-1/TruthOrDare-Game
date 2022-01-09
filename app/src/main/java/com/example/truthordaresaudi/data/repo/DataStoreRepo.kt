@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
+import com.example.truthordaresaudi.PREF_NAME
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 
-const val PREF_NAME = "truth_or_dare_pref"
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREF_NAME)
 class DataStoreRepo(private val context: Context) {
 
@@ -41,7 +41,7 @@ class DataStoreRepo(private val context: Context) {
 
     val readRememberMe: Flow<Boolean> = context.dataStore.data.catch { e ->
         if(e is IOException){
-            Log.e("DataStoreRepo", e.localizedMessage.toString())
+            Log.e("DataStoreRepo", e.toString())
             emit(emptyPreferences())
         }else{
             throw e
@@ -53,7 +53,7 @@ class DataStoreRepo(private val context: Context) {
 
     val readTheme: Flow<Boolean> = context.dataStore.data.catch { e ->
         if(e is IOException){
-            Log.e("DataStoreRepo", e.localizedMessage.toString())
+            Log.e("DataStoreRepo", e.toString())
             emit(emptyPreferences())
         }else{
             throw e
@@ -65,7 +65,7 @@ class DataStoreRepo(private val context: Context) {
 
     val readLanguage: Flow<String> = context.dataStore.data.catch { e ->
         if(e is IOException){
-            Log.e("DataStoreRepo", e.localizedMessage.toString())
+            Log.e("DataStoreRepo", e.toString())
             emit(emptyPreferences())
         }else{
             throw e

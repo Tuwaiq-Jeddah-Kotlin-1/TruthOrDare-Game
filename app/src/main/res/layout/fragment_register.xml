@@ -8,30 +8,17 @@
     tools:context=".useraccount.RegisterFragment">
 
 
-    <View
-        android:layout_width="206dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/shape_left"
+    <ImageView
+        android:id="@+id/backRegister"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_backbtn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <View
-        android:layout_width="205dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/shape_right"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.037" />
 
     <TextView
         android:id="@+id/tvLoginRegister"
@@ -41,8 +28,9 @@
         android:layout_margin="50dp"
         android:layout_marginTop="56dp"
         android:fontFamily="casual"
-        android:text="@string/login"
-        android:textSize="30sp"
+        android:textColor="@color/myGray"
+        android:text="@string/loginreg"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
@@ -55,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="50dp"
+        android:textColor="@color/myYellow"
         android:layout_marginTop="56dp"
         android:fontFamily="casual"
         android:text="@string/register"
@@ -65,26 +54,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--<TextView
-        android:id="@+id/tvSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="30sp"
-        android:fontFamily="casual"
-        android:text="Sign up"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etSignUpEmailLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/MyTextInputLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
         app:endIconMode="clear_text"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,18 +72,16 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CBFFFFFF"
-            android:hint="Email"
-            android:textSize="20sp" />
+            android:hint="@string/email"
+            android:textSize="17sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvFullName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        style="@style/MyTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Full Name"
+        android:hint="@string/full_name"
         app:endIconMode="clear_text"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,20 +93,16 @@
             android:id="@+id/etFullName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CBFFFFFF"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-
         android:id="@+id/tvPassword"
-
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/MyTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_margin="20dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:endIconMode="password_toggle"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -141,22 +111,19 @@
         app:startIconDrawable="@drawable/ic_lock">
 
         <com.google.android.material.textfield.TextInputEditText
-
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CBFFFFFF"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tvConfirmPassword"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        style="@style/MyTextInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Confirm password"
+        android:hint="@string/confirm_password"
         app:endIconMode="password_toggle"
         app:helperTextTextColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
@@ -169,9 +136,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#CBFFFFFF"
             android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:textSize="17sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <CheckBox
@@ -179,9 +145,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Remember me"
+        android:text="@string/remember_me"
         android:textColor="#2196F3"
-        android:textSize="16sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -206,7 +172,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="casual"
         android:gravity="center"
-        android:text="Register"
+        android:text="@string/registerLogin"
         android:textColor="@color/myDark_blue"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -220,7 +186,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
+        app:layout_constraintGuide_percent="0.84" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
