@@ -20,7 +20,6 @@
     <string name="bottle">العب بالقارورة</string>
     <string name="rules_button">ازرار القوانين</string>
     <string name="game_rules">قوانين اللعبة</string>
-    <string name="login"><u>تسجيل الدخول</u></string>
     <string name="don_have_an_account">ما عندك حساب؟</string>
     <string name="register_now">سوي حساب جديد</string>
     <string name="remember_me">تذكرني</string>
@@ -46,6 +45,25 @@
     <string name="password">الرقم السري</string>
     <string name="register"><u>تسجيل</u></string>
     <string name="loginbtn">تسجيل الدخول</string>
+    <string name="login"><u>دخول</u></string>
+    <string name="loginreg">دخول</string>
+    <string name="registerLogin">تسجيل</string>
+    <string name="forget_password"><u>نسيت كلمة المرور؟</u></string>
+    <string name="enter_email">من فضلك ادخل الايميل</string>
+    <string name="enter_password">من فضلك ادخل كلمة المرور</string>
+    <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+    <string name="welcome_again">اهلاً من جديد 🎉 !</string>
+    <string name="login_failed">فشل تسجيل الدخول..</string>
+    <string name="register_failed">فشل التسجيل..</string>
+    <string name="Welcome">أهلاً \uD83C\uDF89 !</string>
+    <string name="enter_name">من فضلك ادخل الاسم الكامل</string>
+    <string name="enter_confirm_password">من فضلك ادخل تأكيد كلمة المرور</string>
+    <string name="passwords_should_match">كلمة المرور يجب ان تطابق تأكيد كلمة المرور</string>
+    <string name="not_registered_msg">انت غير مسجل بعد، \n سجل الآن لرؤية ملفك الشخصي</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="reset">إستعادة</string>
+    <string name="enter_your_email">ادخل ايميلك</string>
+
 
 
 
