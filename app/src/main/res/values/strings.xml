@@ -18,7 +18,7 @@
     <string name="bottle_button">Bottle Button</string>
     <string name="bottle">Bottle</string>
     <string name="rules_button">Rules Button</string>
-    <string name="game_rules">Game Rules</string>
+    <string name="game_rules">How to play</string>
     <string name="loginbtn">Login</string>
     <string name="don_have_an_account">Don\'t have an account?</string>
     <string name="register_now">Register now</string>
@@ -62,6 +62,8 @@
     <string name="confirm_password">Confirm password</string>
     <string name="reset">Reset</string>
     <string name="enter_your_email">Enter your email</string>
+    <string name="rules">Rules: 📜</string>
+    <string name="tord_rules">1- You should sit as a group in a circle and spin the bottle . \n2- Player 1 who faced the bottle bottom will give player 2 the ability to choose truth or dare .\n3- If player 2 choose truth or dare he should do the require action before the end of the time .\n4- If player 2 didn\'t do what is required, player 1 can choose a punishment and player 2 must do it before the timer ends .\n5- If the players want to ask free questions or choose their own dare, they can play with random bottle .\n6- If the player has any suggestion for the game, he ca simply fill the suggestion field .\n7- The player can play either he registers or not but cannot change the app language or theme unless he registers .</string>
 
 
 </resources>
