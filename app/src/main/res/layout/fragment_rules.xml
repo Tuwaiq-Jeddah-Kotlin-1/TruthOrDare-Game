@@ -12,8 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="Rules:"
-        android:textColor="@color/myDark_blue"
+        android:text="@string/rules"
+        android:textColor="@color/textColors"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,16 +39,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:text="-dododoododo\ndkdkdkdk\nfkkfkfk"
-        android:textColor="@color/myDark_blue"
-        android:textSize="25sp"
+        android:paddingEnd="10dp"
+        android:paddingStart="20dp"
+        android:background="#A3EFEFEF"
+        android:text="@string/tord_rules"
+        android:textColor="@color/textColors"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.56" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
