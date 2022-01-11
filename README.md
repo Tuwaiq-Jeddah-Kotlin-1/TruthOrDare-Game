@@ -7,14 +7,22 @@ Demo Account: <br/>
 
 Description :scroll:
 --
-- Firebase Authentication				- Firebase fire store database
-- Navigation component				- Android material
-- Retrofit library					- Coroutines 
-- Live-data and Flow					- Jetpack Compose
-- Jetpack View-Model					- Jetpack Live-data
-- Jetpack animation					- Android animation
-- Lottie animation					- Work manager
-- Data store preference				- Mock API (online data storage)
+- Firebase Authentication				
+- Firebase fire store database
+- Mock API (online data storage)
+- Navigation component				
+- Android material
+- Retrofit library					
+- Coroutines 
+- Live-data and Flow					
+- Jetpack Compose
+- Jetpack View-Model					
+- Jetpack Live-data
+- Jetpack animation					
+- Android animation
+- Lottie animation					
+- Work manager
+- Data store preference	
 - Media player
 
 
