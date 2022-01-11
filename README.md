@@ -7,10 +7,21 @@ Demo Account: <br/>
 
 Description :scroll:
 --
+- Firebase Authentication				- Firebase fire store database
+- Navigation component				- Android material
+- Retrofit library					- Coroutines 
+- Live-data and Flow					- Jetpack Compose
+- Jetpack View-Model					- Jetpack Live-data
+- Jetpack animation					- Android animation
+- Lottie animation					- Work manager
+- Data store preference				- Mock API (online data storage)
+- Media player
+
 
 
 Motivation and Context :bulb:
 --
+The idea came from the community’s need to entertain, increase challenge and excitement at gatherings, and replace traditional games with modern and fun games, while maintaining the basic idea of truth or dare game. 
 
 
 App Media :iphone:
