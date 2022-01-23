@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.truthordaresaudi.useraccount.LoginFragment"
+        android:name="com.example.truthordaresaudi.ui.useraccount.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/RegisterFragment"
-        android:name="com.example.truthordaresaudi.useraccount.RegisterFragment"
+        android:name="com.example.truthordaresaudi.ui.useraccount.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action

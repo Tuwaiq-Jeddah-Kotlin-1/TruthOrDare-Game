@@ -1,4 +1,4 @@
-package com.example.truthordaresaudi.useraccount
+package com.example.truthordaresaudi.ui.useraccount
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -49,11 +49,8 @@ class LoginFragment : Fragment() {
         forgetPassword = view.findViewById(R.id.forgetPassword)
 
 
-
         forgetPassword.setOnClickListener {
             resetPasswordBottomSheet()
-
-
         }
 
         backLogin.setOnClickListener {

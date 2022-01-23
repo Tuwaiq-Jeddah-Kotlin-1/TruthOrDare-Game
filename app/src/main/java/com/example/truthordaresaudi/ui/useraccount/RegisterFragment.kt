@@ -1,8 +1,7 @@
-package com.example.truthordaresaudi.useraccount
+package com.example.truthordaresaudi.ui.useraccount
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,10 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.SharedViewModel
-import com.example.truthordaresaudi.data.model.Users
 import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 
 class RegisterFragment : Fragment() {

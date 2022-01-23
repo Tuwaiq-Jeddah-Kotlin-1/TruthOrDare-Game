@@ -6,14 +6,18 @@ import android.util.Log
 import com.example.truthordaresaudi.data.repo.GameRepo
 import com.example.truthordaresaudi.data.model.GameData
 import com.example.truthordaresaudi.data.model.UserSuggestions
+import android.content.res.Configuration
 import kotlinx.coroutines.launch
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.*
 import androidx.lifecycle.Observer
 import com.example.truthordaresaudi.data.repo.DataStoreRepo
 import kotlinx.coroutines.Dispatchers
+import java.util.*
 
 
 class SharedViewModel(application: Application) : AndroidViewModel(application) {
@@ -52,7 +56,7 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         return tORd
     }
 
-    fun userRequests(gameVal: UserSuggestions, context: Context, view: View) {
+    fun userRequests(gameVal: UserSuggestions) {
         viewModelScope.launch {
             try {
                 myRepo.userRequests(gameVal)
@@ -63,8 +67,12 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
     }
 
     fun checkInternetConnection(context: Context): Boolean {
-        return myRepo.checkInternetConnection(context)
-    }
+            val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val activeNetwork = connectivityManager.activeNetwork
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+            return networkCapabilities != null && networkCapabilities.hasCapability(
+                NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        }
 
 
     fun updateUser(username: String) {
@@ -73,8 +81,14 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun setLocale(activity: Activity, languageCode: String) {
-        myRepo.setLocal(activity, languageCode)
+    fun setLocale(activity: Activity, languageCode: String, viewLifecycleOwner: LifecycleOwner) {
+        val locale = Locale(languageCode)
+        Locale.setDefault(locale)
+        val resources = activity.resources
+        val config: Configuration = resources.configuration
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+
     }
 
 
@@ -89,10 +103,8 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
             if (it) {
                 saveRememberMe(isRemembered)
                 loadUserInfo()
-                Log.e("true", "Result true")
                 loginResult.postValue(true)
             } else {
-                Log.e("false", "Result faLse")
                 loginResult.postValue(false)
             }
         })
@@ -128,7 +140,10 @@ class SharedViewModel(application: Application) : AndroidViewModel(application) 
         myRepo.getUserInfo()
     }
 
-    fun resetPassword(email: String, lifecycleOwner: LifecycleOwner): LiveData<Boolean> {
+    fun resetPassword(
+        email: String,
+        lifecycleOwner: LifecycleOwner
+    ): LiveData<Boolean> {
         val resetResult = MutableLiveData<Boolean>()
         myRepo.resetPassword(email).observe(lifecycleOwner, Observer {
             if (it) {

@@ -42,6 +42,7 @@
         android:id="@+id/letsPlayAr"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:elevation="5dp"
         android:fontFamily="@font/amita"
         android:gravity="center"
@@ -54,14 +55,13 @@
         app:layout_constraintHorizontal_bias="0.72"
         app:layout_constraintStart_toStartOf="@+id/lottieAnimationView"
         app:layout_constraintTop_toTopOf="@+id/lottieAnimationView"
-        app:layout_constraintVertical_bias="0.606" />
+        app:layout_constraintVertical_bias="0.561" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieAnimationView"
         android:layout_width="300dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="15dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/profile"

@@ -39,11 +39,11 @@ class MyMainActivity : AppCompatActivity() {
          sharedVM.readLanguage.observe(this,{
           if (it == "ar"){
               Log.e("ProfileFragmentTheme","it = arabic")
-              sharedVM.setLocale(this, "ar")
+              sharedVM.setLocale(this, "ar", this)
 
           }else{
               Log.e("ProfileFragmentTheme","it = english")
-              sharedVM.setLocale(this, "en")
+              sharedVM.setLocale(this, "en", this)
           }
       })
 

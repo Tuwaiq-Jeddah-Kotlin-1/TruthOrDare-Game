@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457842491041",
+    "project_id": "truthordare-4c949",
+    "storage_bucket": "truthordare-4c949.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457842491041:android:09a052d401fb2e49a83ae0",
+        "android_client_info": {
+          "package_name": "com.example.truthordaresaudi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457842491041-g9l3bnke9qmcac0ecmcognuc35f7qfsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnl2XhEu6Rd3RLBKebRey6ZHD43AbX4z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457842491041-g9l3bnke9qmcac0ecmcognuc35f7qfsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
