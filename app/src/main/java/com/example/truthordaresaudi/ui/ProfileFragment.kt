@@ -1,5 +1,6 @@
 package com.example.truthordaresaudi.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -32,15 +33,16 @@ class ProfileFragment : Fragment() {
     private lateinit var saveName: ImageView
     private lateinit var deleteAccount: TextView
     private lateinit var backBtn: ImageView
-
     private val userAuth = FirebaseAuth.getInstance()
     private val fireStore = FirebaseFirestore.getInstance()
     private val currentUser = userAuth.currentUser
     private val userId = FirebaseAuth.getInstance().currentUser?.uid
+    private lateinit var curLang: String
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_profile, container, false)
     }
 
@@ -95,13 +97,14 @@ class ProfileFragment : Fragment() {
         })
 
         sharedVM.readLanguage.observe(viewLifecycleOwner, {
+            curLang = it
             if (it == "ar") {
                 Log.e("ProfileFragmentTheme", "it = arabic")
-                sharedVM.setLocale(requireActivity(), "ar")
+                sharedVM.setLocale(requireActivity(), "ar", viewLifecycleOwner)
 
             } else {
                 Log.e("ProfileFragmentTheme", "it = english")
-                sharedVM.setLocale(requireActivity(), "en")
+                sharedVM.setLocale(requireActivity(), "en", viewLifecycleOwner)
             }
         })
 
@@ -113,17 +116,11 @@ class ProfileFragment : Fragment() {
 
         arLanguage.setOnClickListener {
             arLanguage.startAnimation(wiggle)
-
-            language("ar", toggle.isChecked)
-
-            findNavController().navigate(R.id.action_profileFragment_self)
-
+            language("ar")
         }
         enLanguage.setOnClickListener {
             enLanguage.startAnimation(wiggle)
-            language("en", toggle.isChecked)
-
-//            findNavController().navigate(R.id.action_profileFragment_self)
+            language("en")
         }
 
         editName.setOnClickListener {
@@ -145,16 +142,6 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    /* private fun setLocale(activity: Activity, languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val resources = activity.resources
-        val config: Configuration = resources.configuration
-        config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        findNavController().navigate(R.id.action_profileFragment_self)
-    }*/
-
     private fun deleteUserAccount(currentUser: FirebaseUser?) {
         currentUser!!.delete().addOnCompleteListener { task ->
             if (task.isSuccessful) {
@@ -168,15 +155,12 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun language(langCode: String, isChecked: Boolean) {
+    private fun language(langCode: String) {
         sharedVM.saveLanguage(langCode)
-        sharedVM.setLocale(requireActivity(), langCode)
-        if (!isChecked){
-//            startActivity(Intent(context, MyMainActivity::class.java))
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-    }
-        else
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        sharedVM.setLocale(requireActivity(), langCode, viewLifecycleOwner)
+        if (langCode != curLang) {
+            startActivity(Intent(context, MyMainActivity::class.java))
+        }
     }
 
 }

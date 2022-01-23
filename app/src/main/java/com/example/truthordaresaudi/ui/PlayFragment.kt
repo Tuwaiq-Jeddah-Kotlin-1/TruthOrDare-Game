@@ -115,15 +115,14 @@ class PlayFragment : Fragment() {
                 val minutes = (millis / 1000) / 60
                 val seconds = (millis / 1000) % 60
                 val time = String.format("%02d:%02d", minutes, seconds)
-                if(time == "00:10"){
+                if(time == "00:10" || time == "٠٠:١٠"){
                     playAudio()
                 }
-                tvTimer.text = resources.getString(R.string.left) + " $time"
+                (resources.getString(R.string.left) + " $time").also { tvTimer.text = it }
             }
 
             override fun onFinish() {
                 mediaPlayer.stop()
-                Toast.makeText(context, "Done!", Toast.LENGTH_LONG).show()
                 tvTimer.text = resources.getString(R.string.finished)
                 timerAnim.visibility = View.INVISIBLE
             }
@@ -208,7 +207,6 @@ class PlayFragment : Fragment() {
         } else {
             Toast.makeText(view.context, "No Internet connection, play offline ", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_playFragment_to_bottleFragment)
-
         }
     }
 

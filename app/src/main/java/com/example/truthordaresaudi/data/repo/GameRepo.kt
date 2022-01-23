@@ -1,10 +1,6 @@
 package com.example.truthordaresaudi.data.repo
 
-import android.app.Activity
-import android.content.Context
-import android.content.res.Configuration
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
+
 import android.util.Log
 import androidx.lifecycle.*
 import com.example.truthordaresaudi.data.model.GameData
@@ -15,14 +11,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.coroutines.*
-import java.util.*
 
 class GameRepo {
     private val api = GameBuilder.gameAPI
     private var db = FirebaseFirestore.getInstance()
     private var auth = FirebaseAuth.getInstance()
     var userInfo = Users("", "", "")
-
 
 
 
@@ -46,28 +40,6 @@ class GameRepo {
             }
         }
     }
-
-    fun setLocal(activity: Activity, languageCode: String){
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-        val resources = activity.resources
-        val config: Configuration = resources.configuration
-        config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
-    }
-
-
-    fun checkInternetConnection(context: Context): Boolean {
-        val connectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val network = connectivityManager.activeNetwork ?: return false
-        val activeNetwork = connectivityManager.getNetworkCapabilities(network) ?: return false
-        return when {
-            activeNetwork.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> true
-            else -> false
-        }
-    }
-
 
      fun loginFirebase(email: String, password: String): MutableLiveData<Boolean>{
          val loginResult = MutableLiveData<Boolean>()
@@ -95,7 +67,6 @@ class GameRepo {
             } catch (e: Exception) {
                 Log.e("Exception", e.localizedMessage)
             }
-
     }
 
     fun getUserInfo(){
@@ -122,7 +93,6 @@ class GameRepo {
             }
         return resetResult
     }
-
 
 }
 

@@ -3,7 +3,7 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="clicked_p">Profile clicked</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Welcome </string>
     <string name="saved">Info Saved Successfully</string>
     <string name="truth">Truth</string>
     <string name="truth_button">Truth Button</string>
@@ -39,9 +39,9 @@
     <string name="enter_your_suggestion">Enter your suggestion</string>
     <string name="chosen_value">chosen value</string>
     <string name="truth_or_dare">Truth or Dare😉?</string>
-    <string name="finished">Finished !</string>
+    <string name="finished">Finished 🚨!</string>
     <string name="left">Left </string>
-    <string name="let"></string>
+    <string name="let">\n</string>
     <string name="password">Password</string>
     <string name="register"><u>Register</u></string>
     <string name="loginreg">Login</string>
@@ -64,6 +64,8 @@
     <string name="enter_your_email">Enter your email</string>
     <string name="rules">Rules: 📜</string>
     <string name="tord_rules">1- You should sit as a group in a circle and spin the bottle . \n2- Player 1 who faced the bottle bottom will give player 2 the ability to choose truth or dare .\n3- If player 2 choose truth or dare he should do the require action before the end of the time .\n4- If player 2 didn\'t do what is required, player 1 can choose a punishment and player 2 must do it before the timer ends .\n5- If the players want to ask free questions or choose their own dare, they can play with random bottle .\n6- If the player has any suggestion for the game, he ca simply fill the suggestion field .\n7- The player can play either he registers or not but cannot change the app language or theme unless he registers .</string>
+    <string name="notification_title">We miss you 😓</string>
+    <string name="notification_msg">Come back and play soon 🤼</string>
 
 
 </resources>

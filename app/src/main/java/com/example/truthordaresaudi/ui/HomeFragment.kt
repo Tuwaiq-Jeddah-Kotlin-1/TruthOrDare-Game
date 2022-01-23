@@ -10,8 +10,11 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.*
+import androidx.core.view.marginRight
+import androidx.core.view.marginStart
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.airbnb.lottie.LottieAnimationView
 import com.example.truthordaresaudi.SharedViewModel
 import com.example.truthordaresaudi.R
 import com.example.truthordaresaudi.data.model.UserSuggestions
@@ -34,7 +37,6 @@ class HomeFragment : Fragment() {
     private lateinit var icShare: ImageView
     private lateinit var profile: ImageView
     private lateinit var scaleUp: Animation
-//    private lateinit var scaleDown: Animation
     private lateinit var suggestion: TextView
     private lateinit var saveBtnAPI: ImageButton
     private lateinit var saveAPI: TextView
@@ -45,6 +47,7 @@ class HomeFragment : Fragment() {
     private lateinit var sharedVM: SharedViewModel
     private lateinit var letsPlayAr: TextView
     private lateinit var letsPlayEn: TextView
+    private lateinit var lottieAnim: LottieAnimationView
     private val appUrl = "https://github.com/"
 
 
@@ -73,6 +76,7 @@ class HomeFragment : Fragment() {
         suggestion = view.findViewById(R.id.tvSuggestion)
         letsPlayAr = view.findViewById(R.id.letsPlayAr)
         letsPlayEn = view.findViewById(R.id.letsPlayEn)
+        lottieAnim = view.findViewById(R.id.lottieAnimationView)
 
         var action = R.id.action_homeFragment_to_notRegisteredFragment
 
@@ -98,10 +102,6 @@ class HomeFragment : Fragment() {
                 letsPlayAr.visibility = View.GONE
             }
         })
-
-
-
-
 
         ivLogin.visibility = View.VISIBLE
         loginText.visibility = View.VISIBLE
@@ -181,10 +181,12 @@ class HomeFragment : Fragment() {
         builder.setContentView(view)
         builder.show()
         saveBtnAPI.setOnClickListener {
-            saveToAPI(view)
+            saveToAPI()
+            builder.hide()
         }
         saveAPI.setOnClickListener {
-            saveToAPI(view)
+            saveToAPI()
+            builder.hide()
         }
     }
 
@@ -195,10 +197,10 @@ class HomeFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun saveToAPI(view: View) {
+    private fun saveToAPI() {
         val suggestions = UserSuggestions()
         suggestions.suggestion = value.text.toString()
-        sharedVM.userRequests(suggestions, view.context, view)
+        sharedVM.userRequests(suggestions)
         Toast.makeText(context, "Thank you for being a part of this game \uD83E\uDD73", Toast.LENGTH_LONG).show()
     }
 

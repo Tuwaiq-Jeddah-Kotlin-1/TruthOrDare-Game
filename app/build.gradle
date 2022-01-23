@@ -71,22 +71,17 @@ dependencies {
 
     //Material
     implementation 'com.google.android.material:material:1.6.0-alpha01'
-//    implementation 'com.google.android.material:material:1.4.0'
 
     // Retrofit library
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-//    //Gson library
-//    implementation 'com.google.code.gson:gson:2.8.6'
-
     // Coroutines Library
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
 
     //Livecycle library
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
-    implementation 'androidx.recyclerview:recyclerview:1.2.1'
 
     //Work Manager
     implementation 'androidx.work:work-runtime-ktx:2.7.1'
@@ -100,18 +95,10 @@ dependencies {
     //Flow lifecycle
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0"
 
-
+    //Jetpack compose
     implementation("androidx.compose.ui:ui:1.0.5")
-    // Tooling support (Previews, etc.)
-    implementation("androidx.compose.ui:ui-tooling:1.0.5")
-    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:1.0.5")
-    // Material Design
     implementation("androidx.compose.material:material:1.0.5")
-    // Material design icons
-    implementation("androidx.compose.material:material-icons-core:1.0.5")
-    implementation("androidx.compose.material:material-icons-extended:1.0.5")
-    // Integration with observables
     implementation("androidx.compose.runtime:runtime-livedata:1.0.5")
 
 

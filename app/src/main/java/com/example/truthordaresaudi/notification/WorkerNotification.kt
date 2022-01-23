@@ -12,7 +12,6 @@ import com.example.truthordaresaudi.MESSAGE
 import com.example.truthordaresaudi.NOTIFICATION_ID
 import com.example.truthordaresaudi.TITLE
 import com.example.truthordaresaudi.ui.MyMainActivity
-import com.example.truthordaresaudi.ui.SplashScreen
 
 class WorkerNotification(private val context: Context, workParams: WorkerParameters): Worker(context, workParams)  {
     override fun doWork(): Result {
@@ -36,10 +35,3 @@ class WorkerNotification(private val context: Context, workParams: WorkerParamet
         return Result.success()
     }
 }
-
-/*
-NotificationHelper(context).createNotification(
-inputData.getString("title").toString(),
-inputData.getString("message").toString())
-return Result.success()*/
-//NotificationManagerCompat.from(context).notify(NOTIFICATION_ID,notification)

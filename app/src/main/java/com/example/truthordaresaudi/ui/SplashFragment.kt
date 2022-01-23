@@ -35,28 +35,8 @@ class SplashFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
-    /* override fun onResume() {
-         super.onResume()
-         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
-         supportActionBar?.hide()
-     }
-
-     override fun onStop() {
-         super.onStop()
-         val supportActionBar = (requireActivity() as AppCompatActivity).supportActionBar
-         supportActionBar?.show()
-
-     }*/
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //hide action bar
-        /*val supportActionBar: ActionBar? = (requireActivity() as AppCompatActivity).supportActionBar
-        supportActionBar?.hide()*/
-
-
-
         compose_splash.setContent {
             MaterialTheme {
                 ComposeSplashScreen(findNavController())
@@ -69,35 +49,25 @@ class SplashFragment : Fragment() {
 fun ComposeSplashScreen(navController: NavController) {
     var startAnimation by remember { mutableStateOf(false) }
     val sizeState by animateSizeAsState(
-        targetValue = if (startAnimation) Size(500f, 500f) else Size(50f, 50f),
+        targetValue = if (startAnimation) Size(250f, 250f) else Size(50f, 50f),
         animationSpec = tween(durationMillis = 2000)
     )
 
     val rotateState by animateFloatAsState(
-        targetValue = if (startAnimation) 180f else 0f, animationSpec = tween(
+        targetValue = if (startAnimation) 360f else 0f, animationSpec = tween(
             durationMillis = 1000
         )
     )
-
-   /* val sizeState2 by animateSizeAsState(
-        targetValue = if (startAnimation) Size(2000f, 2000f) else Size(500f, 500f),
-        animationSpec = tween(
-            durationMillis = 6000
-        )
-    )*/
-
     LaunchedEffect(key1 = true) {
         startAnimation = true
         delay(2000)
         navController.navigate(R.id.action_splashFragment_to_homeFragment)
     }
-
-    SplashCompose(sizeState, rotateState)/*, sizeState2*/
+    SplashCompose(sizeState, rotateState)
 }
 
-
 @Composable
-fun SplashCompose(sizeState: Size, rotateState: Float/*, sizeState2: Size*/) {
+fun SplashCompose(sizeState: Size, rotateState: Float) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -110,24 +80,9 @@ fun SplashCompose(sizeState: Size, rotateState: Float/*, sizeState2: Size*/) {
                 .size(
                     sizeState.width.dp,
                     sizeState.height.dp
-                )
-                , painter = painterResource(id = R.drawable.splash), contentDescription = "logo"
+                ), painter = painterResource(id = R.drawable.logotordm), contentDescription = "logo"
         )
 
-           /* .size(
-                sizeState2.width.dp,
-                sizeState2.height.dp
-            )*/
-
-    //.offset(x = 50.dp)
-        /* Image(
-             modifier = Modifier
-                 .rotate(rotateState)
-                 .size(
-                     sizeState.width.dp,
-                     sizeState.height.dp
-                 ), painter = painterResource(id = R.drawable.profye), contentDescription = "logo"
-         )*/
     }
 }
 
