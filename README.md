@@ -1,4 +1,5 @@
 # TruthOrDare-Game
+<img src="https://user-images.githubusercontent.com/91476972/150691256-706b563d-c274-48a9-b068-7f0b77343ac8.png" width="110" height="110">
 This is my final graduation project from Tuwaiq Academy, Tuwaiq 1000 program.<br/>
 Demo Account: <br/>
 -Email: demo@m.com <br/>
