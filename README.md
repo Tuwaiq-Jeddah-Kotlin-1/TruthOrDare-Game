@@ -34,6 +34,10 @@ The idea came from the community’s need to entertain, increase challenge and e
 
 App Media :iphone:
 --
+![splash](https://user-images.githubusercontent.com/91476972/150679194-6519b309-2a3d-4e3c-a1f8-dbe70f53378c.gif)
+![loginregister](https://user-images.githubusercontent.com/91476972/150679214-8794e71d-c146-415b-98f2-46c386f62aff.gif)
+![profile](https://user-images.githubusercontent.com/91476972/150679228-174f1ec0-8fa1-4e12-87a4-87c8606ea33f.gif)
+![playtruth](https://user-images.githubusercontent.com/91476972/150679238-0fbcd904-3abd-449c-a470-15ea502811e9.gif)
 
 
 Trello board :pencil:
