@@ -10,11 +10,11 @@ App Idea :bulb:
 The main idea of this application is to improve the old idea of playing Truth or Dare Game and replace it with a mobile application with extra features for more exciting.
 
 
-Libriries and Technologies :scroll:
+Libraries and Technologies :scroll:
 --
 - Firebase Authentication				
 - Firebase fire store database
-- Mock API (online data storage)c
+- Mock API (online data storage)
 - Navigation component				
 - Android material
 - Retrofit library					
@@ -29,6 +29,7 @@ Libriries and Technologies :scroll:
 - Work manager
 - Data store preference	
 - Media player
+- MVVM Design pattern
 
 
 
