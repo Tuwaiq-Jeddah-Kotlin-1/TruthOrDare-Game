@@ -4,12 +4,16 @@ Demo Account: <br/>
 -Email: demo@m.com <br/>
 -Password: 123456 <br/>
 
+App Idea :bulb:
+--
+The main idea of this application is to improve the old idea of playing Truth or Dare Game and replace it with a mobile application with extra features for more exciting.
+
 
 Libriries and Technologies :scroll:
 --
 - Firebase Authentication				
 - Firebase fire store database
-- Mock API (online data storage)
+- Mock API (online data storage)c
 - Navigation component				
 - Android material
 - Retrofit library					
@@ -27,21 +31,26 @@ Libriries and Technologies :scroll:
 
 
 
-Motivation and Context :bulb:
+Motivation and Context :crystal_ball:
 --
-The idea came from the community’s need to entertain, increase challenge and excitement at gatherings, and replace traditional games with modern and fun games, while maintaining the basic idea of truth or dare game. 
+The motivation came from the community’s need to entertain, increase challenge and excitement at gatherings, and replace traditional games with modern and fun games, while maintaining the basic idea of truth or dare game. 
 
 
 App Media :iphone:
 --
-
+Splash Screen and Game logo <br/>
 <img src="https://user-images.githubusercontent.com/91476972/150679194-6519b309-2a3d-4e3c-a1f8-dbe70f53378c.gif" width="193.87" height="400">
+<br/>
+Login/Register Screens <br/>
+<img src="https://user-images.githubusercontent.com/91476972/150679214-8794e71d-c146-415b-98f2-46c386f62aff.gif" width="193.87" height="400">
+<br/>
+Profile Screen <br/>
+<img src="https://user-images.githubusercontent.com/91476972/150679228-174f1ec0-8fa1-4e12-87a4-87c8606ea33f.gif" width="193.87" height="400">
+<br/>
+Play Screen <br/>
+<img src="https://user-images.githubusercontent.com/91476972/150679238-0fbcd904-3abd-449c-a470-15ea502811e9.gif" width="193.87" height="400">
 
 
-![splash](https://user-images.githubusercontent.com/91476972/150679194-6519b309-2a3d-4e3c-a1f8-dbe70f53378c.gif)
-![loginregister](https://user-images.githubusercontent.com/91476972/150679214-8794e71d-c146-415b-98f2-46c386f62aff.gif)
-![profile](https://user-images.githubusercontent.com/91476972/150679228-174f1ec0-8fa1-4e12-87a4-87c8606ea33f.gif)
-![playtruth](https://user-images.githubusercontent.com/91476972/150679238-0fbcd904-3abd-449c-a470-15ea502811e9.gif)
 
 
 Trello board :pencil:
